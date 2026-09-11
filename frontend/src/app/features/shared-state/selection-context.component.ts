@@ -1,8 +1,10 @@
+// shared state : bind context in a template start
 /**
  * "Bind context in a template", verbatim. The directive registers on first
  * render, so it must not be rendered before the context is complete.
  * https://docs.copilotkit.ai/angular/ms-agent-python/guides/shared-state
  */
+
 import { Component, computed, signal } from '@angular/core';
 import { CopilotKitAgentContext } from '@copilotkit/angular';
 
@@ -18,3 +20,4 @@ export class SelectionContextComponent {
     value: this.selectedId(),
   }));
 }
+// shared state : bind context in a template end

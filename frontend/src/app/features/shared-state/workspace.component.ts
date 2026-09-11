@@ -1,8 +1,10 @@
+// shared state : read and write agent state start
 /**
  * "Read agent state", verbatim. Reads through `store().state()` so Angular
  * tracks changes; writes through the plain AG-UI agent at `store().agent`.
  * https://docs.copilotkit.ai/angular/ms-agent-python/guides/shared-state
  */
+
 import { Component, computed } from '@angular/core';
 import { injectAgentStore } from '@copilotkit/angular';
 
@@ -46,3 +48,4 @@ export class WorkspaceComponent {
     agent.setState({ ...current, priority });
   }
 }
+// shared state : read and write agent state end

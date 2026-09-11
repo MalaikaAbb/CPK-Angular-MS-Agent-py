@@ -1,3 +1,4 @@
+// chat ui : add an inline chat start
 /**
  * "Add an inline chat", verbatim.
  * https://docs.copilotkit.ai/angular/ms-agent-python/guides/chat-ui
@@ -5,6 +6,7 @@
  * `agentId="support"` resolves because the runtime registers a `support` agent
  * alongside `default` (see frontend/server.ts).
  */
+
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { CopilotChat } from '@copilotkit/angular';
 
@@ -27,3 +29,4 @@ import { CopilotChat } from '@copilotkit/angular';
   `,
 })
 export class SupportChatComponent {}
+// chat ui : add an inline chat end

@@ -115,21 +115,46 @@ export class StatusBadge {
   template: `
     <figure class="code-figure">
       <figcaption class="code-figure__bar">
-        <span class="code-figure__path">{{ path() }}</span>
-        <span class="code-figure__meta">
-          @if (note()) {
-            <span class="code-figure__note">{{ note() }}</span>
-          }
-          <span class="code-figure__lang">{{ language() }}</span>
+        <div class="code-figure__path-group">
+          <span class="code-figure__path">{{ path() }}</span>
           <button
             type="button"
-            class="code-figure__copy"
-            [attr.aria-label]="'Copy ' + path() + ' to the clipboard'"
-            (click)="copy()"
+            class="code-figure__copy-path"
+            [attr.aria-label]="'Copy file path ' + path() + ' to clipboard'"
+            (click)="copyPath()"
           >
-            {{ copied() ? 'Copied' : 'Copy' }}
+            @if (pathCopied()) {
+              <svg class="code-figure__icon text-emerald-400" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+              </svg>
+              <span>Path copied!</span>
+            } @else {
+              <svg class="code-figure__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+              <span>Copy path</span>
+            }
           </button>
-        </span>
+          <a
+            [href]="ideUri()"
+            class="code-figure__open-ide"
+            [attr.aria-label]="'Open ' + path() + ' in IDE'"
+            title="Open file in IDE"
+          >
+            <svg class="code-figure__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+              <polyline points="15 3 21 3 21 9"></polyline>
+              <line x1="10" y1="14" x2="21" y2="3"></line>
+            </svg>
+            <span>Open in IDE</span>
+          </a>
+        </div>
+        @if (note()) {
+          <span class="code-figure__meta">
+            <span class="code-figure__note">{{ note() }}</span>
+          </span>
+        }
       </figcaption>
       <pre class="code-figure__pre"><code [innerHTML]="html()"></code></pre>
     </figure>
@@ -140,20 +165,26 @@ export class SourceCode {
   readonly path = input.required<string>();
   readonly note = input<string>();
 
-  protected readonly copied = signal(false);
+  protected readonly pathCopied = signal(false);
   protected readonly body = computed(() => readSource(this.path()));
   protected readonly language = computed(() => languageForPath(this.path()));
+  protected readonly ideUri = computed(() => {
+    const p = this.path();
+    const base = 'c:/Users/dynamic computer/Desktop/work/FIQROS/optimized-malaika/mspy-angular';
+    const fullPath = p.startsWith('backend/') ? `${base}/${p}` : `${base}/frontend/${p}`;
+    return `vscode://file/${fullPath}`;
+  });
   protected readonly html = computed(() =>
     highlight(this.body(), this.language()),
   );
 
-  protected async copy(): Promise<void> {
+  protected async copyPath(): Promise<void> {
     try {
-      await navigator.clipboard.writeText(this.body());
-      this.copied.set(true);
-      setTimeout(() => this.copied.set(false), 1500);
+      await navigator.clipboard.writeText(this.path());
+      this.pathCopied.set(true);
+      setTimeout(() => this.pathCopied.set(false), 1500);
     } catch {
-      // Clipboard permission denied — the code is selectable either way.
+      // Clipboard permission denied — path is selectable either way.
     }
   }
 }
@@ -164,10 +195,30 @@ export class SourceCode {
   template: `
     <figure class="code-figure code-figure--quoted">
       <figcaption class="code-figure__bar">
-        <span class="code-figure__path">{{ caption() }}</span>
+        <div class="code-figure__path-group">
+          <span class="code-figure__path">{{ caption() }}</span>
+          <button
+            type="button"
+            class="code-figure__copy-path"
+            [attr.aria-label]="'Copy ' + caption() + ' to clipboard'"
+            (click)="copyCaption()"
+          >
+            @if (captionCopied()) {
+              <svg class="code-figure__icon text-emerald-400" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+              </svg>
+              <span>Copied!</span>
+            } @else {
+              <svg class="code-figure__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+              <span>Copy</span>
+            }
+          </button>
+        </div>
         <span class="code-figure__meta">
           <span class="code-figure__badge">not mounted</span>
-          <span class="code-figure__lang">{{ language() }}</span>
         </span>
       </figcaption>
       <pre class="code-figure__pre"><code [innerHTML]="html()"></code></pre>
@@ -179,7 +230,18 @@ export class DocSample {
   readonly code = input.required<string>();
   readonly language = input<CodeLanguage>('typescript');
 
+  protected readonly captionCopied = signal(false);
   protected readonly html = computed(() =>
     highlight(this.code(), this.language()),
   );
+
+  protected async copyCaption(): Promise<void> {
+    try {
+      await navigator.clipboard.writeText(this.caption());
+      this.captionCopied.set(true);
+      setTimeout(() => this.captionCopied.set(false), 1500);
+    } catch {
+      // Clipboard permission denied
+    }
+  }
 }

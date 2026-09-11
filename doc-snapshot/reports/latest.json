@@ -1,0 +1,200 @@
+{
+  "ranAt": "2026-08-30T13:43:33.889Z",
+  "baseline": false,
+  "docsRoot": "https://docs.copilotkit.ai/angular/ms-agent-python",
+  "pages": [
+    {
+      "docPath": "/angular/ms-agent-python",
+      "url": "https://docs.copilotkit.ai/angular/ms-agent-python.md",
+      "routes": [
+        "/"
+      ],
+      "title": "Angular",
+      "sha256": "050af1fb97a980111133e63ac3aecd2e41d15f00f3d67e7c63635cf5a33909ca",
+      "bytes": 7159,
+      "lines": 185,
+      "outcome": "modified",
+      "severity": "low",
+      "hunks": [
+        {
+          "startLine": 165,
+          "heading": "Getting started",
+          "lines": [
+            {
+              "op": "context",
+              "text": "        ### Open Inspector and confirm setup",
+              "kind": "prose"
+            },
+            {
+              "op": "context",
+              "text": "",
+              "kind": "prose"
+            },
+            {
+              "op": "remove",
+              "text": "Angular does not mount Inspector by default. First follow [Inspector for Angular](/angular/ms-agent-python/inspector). Then, on localhost, click the Inspector button.",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "On localhost, click the Inspector button in the corner of the app.",
+              "kind": "prose"
+            },
+            {
+              "op": "context",
+              "text": "",
+              "kind": "prose"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "docPath": "/angular/ms-agent-python/quickstart",
+      "url": "https://docs.copilotkit.ai/angular/ms-agent-python/quickstart.md",
+      "routes": [
+        "/quickstart"
+      ],
+      "title": "Angular",
+      "sha256": "050af1fb97a980111133e63ac3aecd2e41d15f00f3d67e7c63635cf5a33909ca",
+      "bytes": 7159,
+      "lines": 185,
+      "outcome": "modified",
+      "severity": "low",
+      "hunks": [
+        {
+          "startLine": 165,
+          "heading": "Getting started",
+          "lines": [
+            {
+              "op": "context",
+              "text": "        ### Open Inspector and confirm setup",
+              "kind": "prose"
+            },
+            {
+              "op": "context",
+              "text": "",
+              "kind": "prose"
+            },
+            {
+              "op": "remove",
+              "text": "Angular does not mount Inspector by default. First follow [Inspector for Angular](/angular/ms-agent-python/inspector). Then, on localhost, click the Inspector button.",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "On localhost, click the Inspector button in the corner of the app.",
+              "kind": "prose"
+            },
+            {
+              "op": "context",
+              "text": "",
+              "kind": "prose"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "docPath": "/angular/ms-agent-python/guides/chat-ui",
+      "url": "https://docs.copilotkit.ai/angular/ms-agent-python/guides/chat-ui.md",
+      "routes": [
+        "/chat-ui"
+      ],
+      "title": "Chat UI and customization",
+      "sha256": "807b77c682052e237a002a95e7ccc107bc5dd3cf52c441d7d31c363e20d84792",
+      "bytes": 5147,
+      "lines": 178,
+      "outcome": "unchanged",
+      "severity": "none",
+      "hunks": []
+    },
+    {
+      "docPath": "/angular/ms-agent-python/guides/frontend-tools-generative-ui",
+      "url": "https://docs.copilotkit.ai/angular/ms-agent-python/guides/frontend-tools-generative-ui.md",
+      "routes": [
+        "/frontend-tools-generative-ui"
+      ],
+      "title": "Frontend tools and generative UI",
+      "sha256": "48aec440ade17b1c9b61c0bcdb606a736ddc9b3a09ee8e90a6b3e4f1028316ff",
+      "bytes": 5737,
+      "lines": 178,
+      "outcome": "unchanged",
+      "severity": "none",
+      "hunks": []
+    },
+    {
+      "docPath": "/angular/ms-agent-python/guides/a2ui",
+      "url": "https://docs.copilotkit.ai/angular/ms-agent-python/guides/a2ui.md",
+      "routes": [
+        "/a2ui"
+      ],
+      "title": "A2UI schemas, styling, and recovery",
+      "sha256": "b0b8759247190d311fca9fcea6923eedb3a9603c980325f90cbca447b6cb8778",
+      "bytes": 5849,
+      "lines": 195,
+      "outcome": "unchanged",
+      "severity": "none",
+      "hunks": []
+    },
+    {
+      "docPath": "/angular/ms-agent-python/guides/voice-multimodal",
+      "url": "https://docs.copilotkit.ai/angular/ms-agent-python/guides/voice-multimodal.md",
+      "routes": [
+        "/voice-multimodal"
+      ],
+      "title": "Voice and multimodal input",
+      "sha256": "2c180ef09dbeb6cb7be6eb3f7959537e0cef845d96ac549243fb50c7dfc890fc",
+      "bytes": 3809,
+      "lines": 111,
+      "outcome": "unchanged",
+      "severity": "none",
+      "hunks": []
+    },
+    {
+      "docPath": "/angular/ms-agent-python/guides/human-in-the-loop",
+      "url": "https://docs.copilotkit.ai/angular/ms-agent-python/guides/human-in-the-loop.md",
+      "routes": [
+        "/human-in-the-loop"
+      ],
+      "title": "Human-in-the-loop and interrupts",
+      "sha256": "fa4d60ba04187cf6e9d329131ad6e40f4bfaa9c96fe6aaf2f3ac17ab338d3bea",
+      "bytes": 8997,
+      "lines": 274,
+      "outcome": "unchanged",
+      "severity": "none",
+      "hunks": []
+    },
+    {
+      "docPath": "/angular/ms-agent-python/guides/shared-state",
+      "url": "https://docs.copilotkit.ai/angular/ms-agent-python/guides/shared-state.md",
+      "routes": [
+        "/shared-state"
+      ],
+      "title": "Shared state and agent context",
+      "sha256": "975f0dbaefe676784971b1526bd625b8035ebdb1f3ed52501b2fa1d7e40b4181",
+      "bytes": 4731,
+      "lines": 151,
+      "outcome": "unchanged",
+      "severity": "none",
+      "hunks": []
+    },
+    {
+      "docPath": "/angular/ms-agent-python/guides/threads-memory-attachments-headless",
+      "url": "https://docs.copilotkit.ai/angular/ms-agent-python/guides/threads-memory-attachments-headless.md",
+      "routes": [
+        "/threads",
+        "/memory",
+        "/attachments",
+        "/headless"
+      ],
+      "title": "Threads, memory, attachments, and headless UI",
+      "sha256": "07635e13148c8e5361ba544a808fc3c1d2eef13ad063216e2152e6adc82d6076",
+      "bytes": 8950,
+      "lines": 302,
+      "outcome": "unchanged",
+      "severity": "none",
+      "hunks": []
+    }
+  ]
+}

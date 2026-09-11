@@ -1,0 +1,144 @@
+{
+  "generatedAt": "2026-08-24T19:28:13.191Z",
+  "framework": "Microsoft Agent Framework (Python) + Angular",
+  "videoPrefix": "MSPY-angular",
+  "clips": {
+    "quickstart": {
+      "order": 1,
+      "id": "quickstart",
+      "name": "Quickstart",
+      "file": "MSPY-angular-01-Quickstart.webm",
+      "sources": [
+        "frontend/package.json",
+        "frontend/src/app/features/quickstart/quickstart-chat.ts",
+        "frontend/server.ts",
+        "backend/main.py"
+      ],
+      "sourceSha": "db9a4eae53af",
+      "recordedAt": "2026-08-24T19:00:02.708Z",
+      "bytes": 4883143,
+      "sha256": "9d094b567222",
+      "status": "current"
+    },
+    "chat-ui": {
+      "order": 2,
+      "id": "chat-ui",
+      "name": "Guides - Chat UI and customization",
+      "file": "MSPY-angular-02-ChatUi.webm",
+      "sources": [
+        "frontend/src/app/features/chat-ui/chat-ui-demo.component.ts",
+        "frontend/src/app/features/chat-ui/custom-assistant-message.component.ts"
+      ],
+      "sourceSha": "4368c3c73a05",
+      "recordedAt": "2026-08-24T19:01:27.695Z",
+      "bytes": 5974376,
+      "sha256": "14ea02b9e071",
+      "status": "current"
+    },
+    "frontend-tools-generative-ui": {
+      "order": 3,
+      "id": "frontend-tools-generative-ui",
+      "name": "Guides - Frontend tools and generative UI",
+      "file": "MSPY-angular-03-FrontendToolsGenerativeUi.webm",
+      "sources": [
+        "frontend/src/app/features/tools/tools-chat.component.ts",
+        "frontend/src/app/features/tools/weather-card.component.ts",
+        "backend/main.py"
+      ],
+      "sourceSha": "488bca85db4f",
+      "recordedAt": "2026-08-24T19:02:39.916Z",
+      "bytes": 5342829,
+      "sha256": "9f721ddc69fc",
+      "status": "current"
+    },
+    "voice-multimodal": {
+      "order": 4,
+      "id": "voice-multimodal",
+      "name": "Guides - Voice and multimodal input",
+      "file": "MSPY-angular-04-VoiceMultimodal.webm",
+      "sources": [
+        "frontend/src/app/features/media/voice-chat.component.ts"
+      ],
+      "sourceSha": "3e2b12a8587d",
+      "recordedAt": "2026-08-24T19:05:42.420Z",
+      "bytes": 4694252,
+      "sha256": "602e6d135d7a",
+      "status": "current"
+    },
+    "human-in-the-loop": {
+      "order": 5,
+      "id": "human-in-the-loop",
+      "name": "Guides - Human-in-the-loop and interrupts",
+      "file": "MSPY-angular-05-HumanInTheLoop.webm",
+      "sources": [
+        "frontend/src/app/features/hitl/approval-tools.service.ts",
+        "frontend/src/app/features/hitl/approval-card.component.ts"
+      ],
+      "sourceSha": "0fb198a279f5",
+      "recordedAt": "2026-08-24T19:06:39.894Z",
+      "bytes": 4208668,
+      "sha256": "382e1d7c6902",
+      "status": "current"
+    },
+    "shared-state": {
+      "order": 6,
+      "id": "shared-state",
+      "name": "Guides - Shared state and agent context",
+      "file": "MSPY-angular-06-SharedState.webm",
+      "sources": [
+        "frontend/src/app/features/shared-state/workspace.component.ts",
+        "frontend/src/app/features/shared-state/account-context.component.ts",
+        "backend/main.py"
+      ],
+      "sourceSha": "5b888ebe36d4",
+      "recordedAt": "2026-08-24T19:24:43.776Z",
+      "bytes": 5895205,
+      "sha256": "06144d288d39",
+      "status": "current"
+    },
+    "threads": {
+      "order": 7,
+      "id": "threads",
+      "name": "Threads",
+      "file": "MSPY-angular-07-Threads.webm",
+      "sources": [
+        "frontend/src/app/features/threads/thread-list.component.ts",
+        "frontend/src/app/features/threads/conversations.component.ts",
+        "frontend/src/app/features/threads/threads-demo.component.ts"
+      ],
+      "sourceSha": "c5dd09207e46",
+      "recordedAt": "2026-08-24T19:25:32.512Z",
+      "bytes": 4504901,
+      "sha256": "c55c0122d5ac",
+      "status": "current"
+    },
+    "attachments": {
+      "order": 8,
+      "id": "attachments",
+      "name": "Attachments",
+      "file": "MSPY-angular-08-Attachments.webm",
+      "sources": [
+        "frontend/src/app/features/attachments/media-chat.component.ts"
+      ],
+      "sourceSha": "b3976926ec3b",
+      "recordedAt": "2026-08-24T19:11:46.351Z",
+      "bytes": 4353918,
+      "sha256": "a3c5538f8988",
+      "status": "current"
+    },
+    "headless": {
+      "order": 9,
+      "id": "headless",
+      "name": "Headless UI",
+      "file": "MSPY-angular-09-HeadlessUi.webm",
+      "sources": [
+        "frontend/src/app/features/headless/headless-chat.component.ts"
+      ],
+      "sourceSha": "7acdc69276e7",
+      "recordedAt": "2026-08-24T19:12:32.299Z",
+      "bytes": 3076075,
+      "sha256": "cf8bacfae950",
+      "status": "current"
+    }
+  }
+}

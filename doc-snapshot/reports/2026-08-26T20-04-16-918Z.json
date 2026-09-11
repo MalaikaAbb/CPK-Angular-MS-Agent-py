@@ -1,0 +1,1926 @@
+{
+  "ranAt": "2026-08-26T20:04:16.918Z",
+  "baseline": false,
+  "docsRoot": "https://docs.copilotkit.ai/angular/ms-agent-python",
+  "pages": [
+    {
+      "docPath": "/angular/ms-agent-python",
+      "url": "https://docs.copilotkit.ai/angular/ms-agent-python.md",
+      "routes": [
+        "/"
+      ],
+      "title": "Angular",
+      "sha256": "6ee9c762f3d6feaecf9032610a8392d4ec640e8e10785ba52fb451f3cec03da4",
+      "bytes": 7259,
+      "lines": 185,
+      "outcome": "modified",
+      "severity": "medium",
+      "hunks": [
+        {
+          "startLine": 1,
+          "heading": "Next steps",
+          "lines": [
+            {
+              "op": "remove",
+              "text": "# Introduction",
+              "kind": "heading"
+            },
+            {
+              "op": "add",
+              "text": "# Angular",
+              "kind": "heading"
+            },
+            {
+              "op": "context",
+              "text": "",
+              "kind": "prose"
+            },
+            {
+              "op": "remove",
+              "text": "> Bring your Microsoft Agent Framework agents to your Angular users with CopilotKit via AG-UI.",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "> Connect an Angular app to Copilot Runtime with CopilotKit.",
+              "kind": "prose"
+            },
+            {
+              "op": "context",
+              "text": "",
+              "kind": "prose"
+            },
+            {
+              "op": "remove",
+              "text": "<FrameworkOverview",
+              "kind": "prose"
+            },
+            {
+              "op": "remove",
+              "text": "  frameworkName=\"Microsoft Agent Framework\"",
+              "kind": "prose"
+            },
+            {
+              "op": "remove",
+              "text": "  frameworkIcon={<MicrosoftIcon className=\"h-10 w-10 text-primary\" width={40} height={40} />}",
+              "kind": "prose"
+            },
+            {
+              "op": "remove",
+              "text": "  header=\"Bring your Microsoft Agent Framework agents to your Angular users\"",
+              "kind": "prose"
+            },
+            {
+              "op": "remove",
+              "text": "  subheader=\"Give your Microsoft Agent Framework agents real user-interactivity using CopilotKit and AG-UI. Build rich, interactive, agent-powered Angular applications.\"",
+              "kind": "prose"
+            },
+            {
+              "op": "remove",
+              "text": "  bannerVideo=\"https://cdn.copilotkit.ai/docs/copilotkit/videos/coagents/overview.mp4\"",
+              "kind": "prose"
+            },
+            {
+              "op": "remove",
+              "text": "  guideLink=\"/angular/ms-agent-python/quickstart\"",
+              "kind": "prose"
+            },
+            {
+              "op": "remove",
+              "text": "  initCommand=\"npx copilotkit@latest init\"",
+              "kind": "prose"
+            },
+            {
+              "op": "remove",
+              "text": "  featuresLink=\"https://feature-viewer.copilotkit.ai/microsoft-agent-framework-python/feature/agentic_chat\"",
+              "kind": "prose"
+            },
+            {
+              "op": "remove",
+              "text": "  supportedFeatures={[",
+              "kind": "prose"
+            },
+            {
+              "op": "remove",
+              "text": "    {",
+              "kind": "prose"
+            },
+            {
+              "op": "remove",
+              "text": "      title: \"Generative UI\",",
+              "kind": "prose"
+            },
+            {
+              "op": "remove",
+              "text": "      description: \"Render your agent's state, progress, outputs, and tool calls with custom Angular components in real-time.\",",
+              "kind": "prose"
+            },
+            {
+              "op": "remove",
+              "text": "      documentationLink: \"/angular/ms-agent-python/guides/frontend-tools-generative-ui\",",
+              "kind": "prose"
+            },
+            {
+              "op": "remove",
+              "text": "      demoLink: \"https://feature-viewer.copilotkit.ai\",",
+              "kind": "prose"
+            },
+            {
+              "op": "remove",
+              "text": "      videoUrl: \"https://cdn.copilotkit.ai/docs/copilotkit/videos/coagents/haiku.mp4\"",
+              "kind": "prose"
+            },
+            {
+              "op": "remove",
+              "text": "    },",
+              "kind": "prose"
+            },
+            {
+              "op": "remove",
+              "text": "    {",
+              "kind": "prose"
+            },
+            {
+              "op": "remove",
+              "text": "      title: \"Human in the Loop\",",
+              "kind": "prose"
+            },
+            {
+              "op": "remove",
+              "text": "      description: \"Empower users to guide agents at key checkpoints. Combine AI and human judgment for controllable agent behavior.\",",
+              "kind": "prose"
+            },
+            {
+              "op": "remove",
+              "text": "      documentationLink: \"/angular/ms-agent-python/guides/human-in-the-loop\",",
+              "kind": "prose"
+            },
+            {
+              "op": "remove",
+              "text": "      demoLink: \"https://feature-viewer.copilotkit.ai\",",
+              "kind": "prose"
+            },
+            {
+              "op": "remove",
+              "text": "      videoUrl: \"https://cdn.copilotkit.ai/docs/copilotkit/images/coagents/human-in-the-loop-example.mp4\"",
+              "kind": "prose"
+            },
+            {
+              "op": "remove",
+              "text": "    },",
+              "kind": "prose"
+            },
+            {
+              "op": "remove",
+              "text": "    {",
+              "kind": "prose"
+            },
+            {
+              "op": "remove",
+              "text": "      title: \"Shared State\",",
+              "kind": "prose"
+            },
+            {
+              "op": "remove",
+              "text": "      description: \"Keep your agent and your Angular app in sync with reactive signals in real-time.\",",
+              "kind": "prose"
+            },
+            {
+              "op": "remove",
+              "text": "      documentationLink: \"/angular/ms-agent-python/guides/shared-state\",",
+              "kind": "prose"
+            },
+            {
+              "op": "remove",
+              "text": "      demoLink: \"https://feature-viewer.copilotkit.ai\",",
+              "kind": "prose"
+            },
+            {
+              "op": "remove",
+              "text": "      videoUrl: \"https://cdn.copilotkit.ai/docs/copilotkit/videos/coagents/shared-state.mp4\"",
+              "kind": "prose"
+            },
+            {
+              "op": "remove",
+              "text": "    }",
+              "kind": "prose"
+            },
+            {
+              "op": "remove",
+              "text": "  ]}",
+              "kind": "prose"
+            },
+            {
+              "op": "remove",
+              "text": "  architectureImage=\"https://cdn.copilotkit.ai/docs/copilotkit/images/microsoft-agent-framework/maf-ag-ui.png\"",
+              "kind": "prose"
+            },
+            {
+              "op": "remove",
+              "text": "  afterFeatures={",
+              "kind": "prose"
+            },
+            {
+              "op": "remove",
+              "text": "    <OpsPlatformCTA",
+              "kind": "prose"
+            },
+            {
+              "op": "remove",
+              "text": "      variant=\"card\"",
+              "kind": "prose"
+            },
+            {
+              "op": "remove",
+              "text": "      title=\"Bring your Agent Framework agents to production\"",
+              "kind": "prose"
+            },
+            {
+              "op": "remove",
+              "text": "      body=\"Add persistent threads and the inspector with the Enterprise Intelligence Platform.\"",
+              "kind": "prose"
+            },
+            {
+              "op": "remove",
+              "text": "      ctaLabel=\"Create a free account\"",
+              "kind": "prose"
+            },
+            {
+              "op": "remove",
+              "text": "      surface=\"docs_microsoft_agent_framework_overview\"",
+              "kind": "prose"
+            },
+            {
+              "op": "remove",
+              "text": "    />",
+              "kind": "prose"
+            },
+            {
+              "op": "remove",
+              "text": "  }",
+              "kind": "prose"
+            },
+            {
+              "op": "remove",
+              "text": "  tutorialLink=\"/angular/ms-agent-python/quickstart\"",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "`@copilotkit/angular` provides Angular components, directives, and services for CopilotKit. This guide gets you to a working Angular app with a chat UI backed by [Copilot Runtime](/angular/ms-agent-python/backend/copilot-runtime). When you select an agent backend in the sidebar, the backend step below changes with it; without a selection, the guide uses CopilotKit's `BuiltInAgent`.",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "The runtime runs on your server, keeps model credentials out of the browser, and exposes the `default` agent that `CopilotChat` uses automatically.",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "<OpsPlatformCTA",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "  variant=\"inline\"",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "  title=\"Take your Angular copilot from local to production\"",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "  body=\"Add durable threads, inspection, and managed or self-hosted CopilotKit Intelligence without changing the Angular frontend APIs in this guide.\"",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "  surface=\"docs:angular/quickstart:production\"",
+              "kind": "prose"
+            },
+            {
+              "op": "context",
+              "text": "/>",
+              "kind": "prose"
+            },
+            {
+              "op": "context",
+              "text": "",
+              "kind": "prose"
+            },
+            {
+              "op": "remove",
+              "text": "## Resources",
+              "kind": "heading"
+            },
+            {
+              "op": "add",
+              "text": "## What is CopilotKit for Angular?",
+              "kind": "heading"
+            },
+            {
+              "op": "context",
+              "text": "",
+              "kind": "prose"
+            },
+            {
+              "op": "remove",
+              "text": "- [Agent Framework User Guide](https://learn.microsoft.com/en-us/agent-framework/user-guide/overview)",
+              "kind": "prose"
+            },
+            {
+              "op": "remove",
+              "text": "- [Agent Framework Tutorials](https://learn.microsoft.com/en-us/agent-framework/tutorials/overview)",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "CopilotKit for Angular is the first-party, signal-based Angular frontend for",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "AG-UI agents and Copilot Runtime. It provides complete chat surfaces and",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "headless APIs, and it supports zoneless applications.",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "## Prerequisites",
+              "kind": "heading"
+            },
+            {
+              "op": "add",
+              "text": "",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "- An OpenAI API key (or another model provider supported by [Model Selection](/angular/model-selection))",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "- Angular 22",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "- Node.js 22",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "## Getting started",
+              "kind": "heading"
+            },
+            {
+              "op": "add",
+              "text": "",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "<Steps>",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "    <Step>",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "        ### Create your Angular app",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "        If you don't have one already, pin the CLI to the supported major:",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "        ```bash",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "        npx @angular/cli@22 new my-copilot-app",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "        cd my-copilot-app",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "        ```",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "    </Step>",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "    <Step>",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "        ### Install CopilotKit",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "        Install the Angular frontend package, `@angular/cdk`, and `@copilotkit/runtime` for your local Copilot Runtime server:",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "        <Tabs groupId=\"package-manager\" items={['npm', 'pnpm', 'yarn']}>",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "            <Tab value=\"npm\">",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "                ```bash",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "                npm install @copilotkit/angular @angular/cdk @copilotkit/runtime",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "                npm install -D tsx typescript @types/node",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "                ```",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "            </Tab>",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "            <Tab value=\"pnpm\">",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "                ```bash",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "                pnpm add @copilotkit/angular @angular/cdk @copilotkit/runtime",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "                pnpm add -D tsx typescript @types/node",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "                ```",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "            </Tab>",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "            <Tab value=\"yarn\">",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "                ```bash",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "                yarn add @copilotkit/angular @angular/cdk @copilotkit/runtime",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "                yarn add -D tsx typescript @types/node",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "                ```",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "            </Tab>",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "        </Tabs>",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "        <Callout type=\"info\" title=\"Match @angular/cdk to your Angular version\">",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "          `@angular/cdk` must share your Angular major version. Most package managers resolve this for you, but if you hit a peer-dependency error, pin it explicitly (for example `@angular/cdk@^22`).",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "        </Callout>",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "    </Step>",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "    ",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "    ",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "      <Step>",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "        ### Connect the selected agent backend",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "        This URL keeps the agent backend selected. The Angular setup remains",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "        shared; the backend setup below comes from that integration's canonical",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "        showcase source.",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "        <!-- setup skipped: agent-setup is not bundled for ms-agent-python -->",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "        <Callout type=\"info\" title=\"Expose the selected backend through Copilot Runtime\">",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "          Configure Copilot Runtime to register this backend as the `default`",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "          agent at `/api/copilotkit`. Continue with the selected backend's",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "          [Copilot Runtime guide](backend/copilot-runtime) for its runtime",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "          adapter, credentials, and server command. Do not replace it with the",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "          `BuiltInAgent` server from the standalone Angular path.",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "        </Callout>",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "      </Step>",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "    ",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "    <Step>",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "        ### Import the styles",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "        Add the package stylesheet to your global styles. It's self-contained, so the chat renders without any other CSS.",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "        ```css title=\"src/styles.css\"",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "        @import \"@copilotkit/angular/styles.css\"; /* [!code highlight] */",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "        ```",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "    </Step>",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "    <Step>",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "        ### Connect to Copilot Runtime",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "        Point `provideCopilotKit` at the runtime endpoint. The chat uses the agent that your runtime registers as `default`.",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "        ```ts title=\"src/app/app.config.ts\"",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "        import { ApplicationConfig } from \"@angular/core\";",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "        import { provideCopilotKit } from \"@copilotkit/angular\"; // [!code highlight]",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "        export const appConfig: ApplicationConfig = {",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "          providers: [",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "            // [!code highlight:3]",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "            provideCopilotKit({",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "              runtimeUrl: \"http://localhost:8200/api/copilotkit\",",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "            }),",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "          ],",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "        };",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "        ```",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "    </Step>",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "    <Step>",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "        ### Add the chat UI",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "        Import the `CopilotChat` component into your root component and drop it into the template.",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "        ```ts title=\"src/app/app.ts\"",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "        import { Component } from \"@angular/core\";",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "        import { CopilotChat } from \"@copilotkit/angular\"; // [!code highlight]",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "        @Component({",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "          selector: \"app-root\",",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "          imports: [CopilotChat], // [!code highlight]",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "          template: `",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "            <!-- [!code highlight:3] -->",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "            <div style=\"height: 100vh\">",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "              <copilot-chat />",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "            </div>",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "          `,",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "        })",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "        export class App {}",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "        ```",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "    </Step>",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "    ",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "    ",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "      <Step>",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "        ### Run the backend, runtime, and Angular app",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "        Start the selected agent backend and Copilot Runtime with the commands",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "        from its runtime guide. Confirm",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "        `http://localhost:8200/api/copilotkit/info` reports the `default`",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "        agent, then start Angular:",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "        ```bash",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "        npm start",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "        ```",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "        Open the Angular CLI URL (usually `http://localhost:4200`) and send a",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "        message. The request now follows the selected path end to end:",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "        Angular → Copilot Runtime → your selected agent backend.",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "      </Step>",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "    ",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "    <Step>",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "        ### Open Inspector and confirm setup",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "Angular does not mount Inspector by default. First follow [Inspector for Angular](/angular/ms-agent-python/inspector). Then, on localhost, click the Inspector button.",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "1. Open **Agents**, then **Agent**. Your agent is listed.",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "2. Send a chat message. Open **Agents**, then **AG-UI Events**. Events are moving.",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "3. Open **Threads**. The list is unlocked (Intelligence is on), or locked with Enable Intelligence (Intelligence is off).",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "More detail: [Inspector](/angular/ms-agent-python/inspector).",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "    </Step>",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "</Steps>",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "## Next steps",
+              "kind": "heading"
+            },
+            {
+              "op": "add",
+              "text": "",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "- [Runtime and backend docs](backend/copilot-runtime): configure the server, secure requests, and deploy without leaving the selected Angular surface.",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "- [CopilotKit Intelligence](premium/overview): add durable threads, inspection, and cloud-hosted or self-hosted operations.",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "- [Angular task guides](guides/chat-ui): build chat UI, tools, generative UI, interrupts, shared state, threads, memory, attachments, and headless UI.",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "- [Angular feature examples](features): find runnable examples and canonical shared Angular source for each supported feature.",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "- [Angular API reference](/reference/angular): use components, signals, tools, context, and runtime services.",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "- [Production and lifecycle](/reference/angular/production-lifecycle): handle cleanup, errors, server rendering, hydration, zoneless Angular, and browser-only features.",
+              "kind": "prose"
+            },
+            {
+              "op": "context",
+              "text": "",
+              "kind": "prose"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "docPath": "/angular/ms-agent-python/quickstart",
+      "url": "https://docs.copilotkit.ai/angular/ms-agent-python/quickstart.md",
+      "routes": [
+        "/quickstart"
+      ],
+      "title": "Angular",
+      "sha256": "6ee9c762f3d6feaecf9032610a8392d4ec640e8e10785ba52fb451f3cec03da4",
+      "bytes": 7259,
+      "lines": 185,
+      "outcome": "modified",
+      "severity": "medium",
+      "hunks": [
+        {
+          "startLine": 4,
+          "heading": "Angular",
+          "lines": [
+            {
+              "op": "context",
+              "text": "",
+              "kind": "prose"
+            },
+            {
+              "op": "context",
+              "text": "> Connect an Angular app to Copilot Runtime with CopilotKit.",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "",
+              "kind": "prose"
+            },
+            {
+              "op": "context",
+              "text": "",
+              "kind": "prose"
+            }
+          ]
+        },
+        {
+          "startLine": 12,
+          "heading": "Angular",
+          "lines": [
+            {
+              "op": "context",
+              "text": "  variant=\"inline\"",
+              "kind": "prose"
+            },
+            {
+              "op": "context",
+              "text": "  title=\"Take your Angular copilot from local to production\"",
+              "kind": "prose"
+            },
+            {
+              "op": "remove",
+              "text": "  body=\"Add durable threads, inspection, and managed or self-hosted Enterprise Intelligence without changing the Angular frontend APIs in this guide.\"",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "  body=\"Add durable threads, inspection, and managed or self-hosted CopilotKit Intelligence without changing the Angular frontend APIs in this guide.\"",
+              "kind": "prose"
+            },
+            {
+              "op": "context",
+              "text": "  surface=\"docs:angular/quickstart:production\"",
+              "kind": "prose"
+            }
+          ]
+        },
+        {
+          "startLine": 25,
+          "heading": "Prerequisites",
+          "lines": [
+            {
+              "op": "context",
+              "text": "",
+              "kind": "prose"
+            },
+            {
+              "op": "context",
+              "text": "- An OpenAI API key (or another model provider supported by [Model Selection](/angular/model-selection))",
+              "kind": "prose"
+            },
+            {
+              "op": "remove",
+              "text": "- Angular 20, 21, or 22",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "- Angular 22",
+              "kind": "prose"
+            },
+            {
+              "op": "context",
+              "text": "- Node.js 22",
+              "kind": "prose"
+            }
+          ]
+        },
+        {
+          "startLine": 34,
+          "heading": "Getting started",
+          "lines": [
+            {
+              "op": "context",
+              "text": "        ### Create your Angular app",
+              "kind": "prose"
+            },
+            {
+              "op": "context",
+              "text": "",
+              "kind": "prose"
+            },
+            {
+              "op": "remove",
+              "text": "        If you don't have one already, pin the CLI to one of the supported majors. This example uses Angular 22:",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "        If you don't have one already, pin the CLI to the supported major:",
+              "kind": "prose"
+            },
+            {
+              "op": "context",
+              "text": "",
+              "kind": "prose"
+            }
+          ]
+        },
+        {
+          "startLine": 162,
+          "heading": "Getting started",
+          "lines": [
+            {
+              "op": "context",
+              "text": "      </Step>",
+              "kind": "prose"
+            },
+            {
+              "op": "context",
+              "text": "    ",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "    <Step>",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "        ### Open Inspector and confirm setup",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "Angular does not mount Inspector by default. First follow [Inspector for Angular](/angular/ms-agent-python/inspector). Then, on localhost, click the Inspector button.",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "1. Open **Agents**, then **Agent**. Your agent is listed.",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "2. Send a chat message. Open **Agents**, then **AG-UI Events**. Events are moving.",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "3. Open **Threads**. The list is unlocked (Intelligence is on), or locked with Enable Intelligence (Intelligence is off).",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "More detail: [Inspector](/angular/ms-agent-python/inspector).",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "    </Step>",
+              "kind": "prose"
+            },
+            {
+              "op": "context",
+              "text": "",
+              "kind": "prose"
+            }
+          ]
+        },
+        {
+          "startLine": 167,
+          "heading": "Next steps",
+          "lines": [
+            {
+              "op": "context",
+              "text": "",
+              "kind": "prose"
+            },
+            {
+              "op": "context",
+              "text": "- [Runtime and backend docs](backend/copilot-runtime): configure the server, secure requests, and deploy without leaving the selected Angular surface.",
+              "kind": "prose"
+            },
+            {
+              "op": "remove",
+              "text": "- [Enterprise Intelligence](premium/overview): add durable threads, inspection, and cloud-hosted or self-hosted operations.",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "- [CopilotKit Intelligence](premium/overview): add durable threads, inspection, and cloud-hosted or self-hosted operations.",
+              "kind": "prose"
+            },
+            {
+              "op": "context",
+              "text": "- [Angular task guides](guides/chat-ui): build chat UI, tools, generative UI, interrupts, shared state, threads, memory, attachments, and headless UI.",
+              "kind": "prose"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "docPath": "/angular/ms-agent-python/guides/chat-ui",
+      "url": "https://docs.copilotkit.ai/angular/ms-agent-python/guides/chat-ui.md",
+      "routes": [
+        "/chat-ui"
+      ],
+      "title": "Chat UI and customization",
+      "sha256": "807b77c682052e237a002a95e7ccc107bc5dd3cf52c441d7d31c363e20d84792",
+      "bytes": 5147,
+      "lines": 178,
+      "outcome": "unchanged",
+      "severity": "none",
+      "hunks": []
+    },
+    {
+      "docPath": "/angular/ms-agent-python/guides/frontend-tools-generative-ui",
+      "url": "https://docs.copilotkit.ai/angular/ms-agent-python/guides/frontend-tools-generative-ui.md",
+      "routes": [
+        "/frontend-tools-generative-ui"
+      ],
+      "title": "Frontend tools and generative UI",
+      "sha256": "48aec440ade17b1c9b61c0bcdb606a736ddc9b3a09ee8e90a6b3e4f1028316ff",
+      "bytes": 5737,
+      "lines": 178,
+      "outcome": "unchanged",
+      "severity": "none",
+      "hunks": []
+    },
+    {
+      "docPath": "/angular/ms-agent-python/guides/a2ui",
+      "url": "https://docs.copilotkit.ai/angular/ms-agent-python/guides/a2ui.md",
+      "routes": [
+        "/a2ui"
+      ],
+      "title": "A2UI schemas, styling, and recovery",
+      "sha256": "b0b8759247190d311fca9fcea6923eedb3a9603c980325f90cbca447b6cb8778",
+      "bytes": 5849,
+      "lines": 195,
+      "outcome": "modified",
+      "severity": "low",
+      "hunks": [
+        {
+          "startLine": 183,
+          "heading": "Angular support boundaries",
+          "lines": [
+            {
+              "op": "context",
+              "text": "## Angular support boundaries",
+              "kind": "heading"
+            },
+            {
+              "op": "context",
+              "text": "",
+              "kind": "prose"
+            },
+            {
+              "op": "remove",
+              "text": "- **Hashbrown is unsupported.** The stable Hashbrown Angular package does not support the complete Angular 20 through 22 policy.",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "- **Hashbrown is unsupported.** The stable Hashbrown Angular package does not support the Angular 22 policy.",
+              "kind": "prose"
+            },
+            {
+              "op": "context",
+              "text": "  Do not add it to an Angular integration; use A2UI with a typed catalog instead.",
+              "kind": "prose"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "docPath": "/angular/ms-agent-python/guides/voice-multimodal",
+      "url": "https://docs.copilotkit.ai/angular/ms-agent-python/guides/voice-multimodal.md",
+      "routes": [
+        "/voice-multimodal"
+      ],
+      "title": "Voice and multimodal input",
+      "sha256": "2c180ef09dbeb6cb7be6eb3f7959537e0cef845d96ac549243fb50c7dfc890fc",
+      "bytes": 3809,
+      "lines": 111,
+      "outcome": "unchanged",
+      "severity": "none",
+      "hunks": []
+    },
+    {
+      "docPath": "/angular/ms-agent-python/guides/human-in-the-loop",
+      "url": "https://docs.copilotkit.ai/angular/ms-agent-python/guides/human-in-the-loop.md",
+      "routes": [
+        "/human-in-the-loop"
+      ],
+      "title": "Human-in-the-loop and interrupts",
+      "sha256": "fa4d60ba04187cf6e9d329131ad6e40f4bfaa9c96fe6aaf2f3ac17ab338d3bea",
+      "bytes": 8997,
+      "lines": 274,
+      "outcome": "modified",
+      "severity": "high",
+      "hunks": [
+        {
+          "startLine": 11,
+          "heading": "Human-in-the-loop and interrupts",
+          "lines": [
+            {
+              "op": "context",
+              "text": "| --- | --- | --- |",
+              "kind": "prose"
+            },
+            {
+              "op": "context",
+              "text": "| Human-in-the-loop tool | The agent calls a registered browser tool | `registerHumanInTheLoop` |",
+              "kind": "prose"
+            },
+            {
+              "op": "remove",
+              "text": "| Interrupt | The backend agent emits an AG-UI interrupt | `injectInterrupt` |",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "| Interrupt | The backend agent emits an AG-UI interrupt | `AgentStore.interruptController`, `injectInterrupt` |",
+              "kind": "prose"
+            },
+            {
+              "op": "context",
+              "text": "",
+              "kind": "prose"
+            }
+          ]
+        },
+        {
+          "startLine": 88,
+          "heading": "Handle an interrupt with a typed controller",
+          "lines": [
+            {
+              "op": "context",
+              "text": "when the owning injector is destroyed.",
+              "kind": "prose"
+            },
+            {
+              "op": "context",
+              "text": "",
+              "kind": "prose"
+            },
+            {
+              "op": "remove",
+              "text": "## Handle an interrupt",
+              "kind": "heading"
+            },
+            {
+              "op": "add",
+              "text": "## Handle an interrupt from the store",
+              "kind": "heading"
+            },
+            {
+              "op": "add",
+              "text": "",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "An interrupt is a state of one conversation: this agent, this thread, this run",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "is waiting for a decision. The store that already exposes that conversation's",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "messages and state exposes its pending interrupt too, so a component that holds",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "a store needs nothing else:",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "```ts title=\"src/app/ticket-approval.component.ts\"",
+              "kind": "fence-open"
+            },
+            {
+              "op": "add",
+              "text": "import { Component } from \"@angular/core\";",
+              "kind": "code"
+            },
+            {
+              "op": "add",
+              "text": "import { injectAgentStore } from \"@copilotkit/angular\";",
+              "kind": "code"
+            },
+            {
+              "op": "add",
+              "text": "",
+              "kind": "code"
+            },
+            {
+              "op": "add",
+              "text": "@Component({",
+              "kind": "code"
+            },
+            {
+              "op": "add",
+              "text": "  selector: \"app-ticket-approval\",",
+              "kind": "code"
+            },
+            {
+              "op": "add",
+              "text": "  template: `",
+              "kind": "code"
+            },
+            {
+              "op": "add",
+              "text": "    @let interrupts = store().interruptController;",
+              "kind": "code"
+            },
+            {
+              "op": "add",
+              "text": "",
+              "kind": "code"
+            },
+            {
+              "op": "add",
+              "text": "    @if (interrupts.hasInterrupt()) {",
+              "kind": "code"
+            },
+            {
+              "op": "add",
+              "text": "      <section>",
+              "kind": "code"
+            },
+            {
+              "op": "add",
+              "text": "        <p>{{ interrupts.interrupt()?.message }}</p>",
+              "kind": "code"
+            },
+            {
+              "op": "add",
+              "text": "        <button type=\"button\" (click)=\"interrupts.resolve({ approved: true })\">",
+              "kind": "code"
+            },
+            {
+              "op": "add",
+              "text": "          Approve",
+              "kind": "code"
+            },
+            {
+              "op": "add",
+              "text": "        </button>",
+              "kind": "code"
+            },
+            {
+              "op": "add",
+              "text": "        <button type=\"button\" (click)=\"interrupts.cancel()\">Reject</button>",
+              "kind": "code"
+            },
+            {
+              "op": "add",
+              "text": "      </section>",
+              "kind": "code"
+            },
+            {
+              "op": "add",
+              "text": "    }",
+              "kind": "code"
+            },
+            {
+              "op": "add",
+              "text": "  `,",
+              "kind": "code"
+            },
+            {
+              "op": "add",
+              "text": "})",
+              "kind": "code"
+            },
+            {
+              "op": "add",
+              "text": "export class TicketApprovalComponent {",
+              "kind": "code"
+            },
+            {
+              "op": "add",
+              "text": "  protected readonly store = injectAgentStore(\"ticketing\");",
+              "kind": "code"
+            },
+            {
+              "op": "add",
+              "text": "}",
+              "kind": "code"
+            },
+            {
+              "op": "add",
+              "text": "```",
+              "kind": "fence-close"
+            },
+            {
+              "op": "add",
+              "text": "",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "The controller is created and connected with the store, then destroyed when the",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "store is torn down or replaced. Standard AG-UI interrupts already retained by",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "the agent are visible immediately, and legacy `on_interrupt` events are observed",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "for the store's full lifetime.",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "## Handle an interrupt with a typed controller",
+              "kind": "heading"
+            },
+            {
+              "op": "context",
+              "text": "",
+              "kind": "prose"
+            },
+            {
+              "op": "context",
+              "text": "`injectInterrupt` subscribes to one agent and exposes the pending decision as",
+              "kind": "prose"
+            },
+            {
+              "op": "context",
+              "text": "signals. It supports standard AG-UI interrupts and the legacy",
+              "kind": "prose"
+            },
+            {
+              "op": "remove",
+              "text": "`on_interrupt` custom event.",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "`on_interrupt` custom event. Use it when the store default is not enough — a",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "typed payload, an `enabled` filter, or a `handler` that prepares data for the",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "view.",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "<Callout type=\"warn\">",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "  Do not render an `injectInterrupt` controller and",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "  `store().interruptController` for the same decision. Both independently",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "  observe the agent, so the same interrupt becomes visible in both and two UI",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "  actions could attempt to resume it. Render only the specialized controller",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "  when you need filtering or typed handling.",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "</Callout>",
+              "kind": "prose"
+            },
+            {
+              "op": "context",
+              "text": "",
+              "kind": "prose"
+            }
+          ]
+        },
+        {
+          "startLine": 128,
+          "heading": "Handle an interrupt with a typed controller",
+          "lines": [
+            {
+              "op": "context",
+              "text": "export class InterruptPanelComponent {",
+              "kind": "prose"
+            },
+            {
+              "op": "context",
+              "text": "  protected readonly controller =",
+              "kind": "prose"
+            },
+            {
+              "op": "remove",
+              "text": "    injectInterrupt<ReviewRequest>({ agentId: \"default\" });",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "    injectInterrupt<ReviewRequest>(\"default\");",
+              "kind": "prose"
+            },
+            {
+              "op": "context",
+              "text": "",
+              "kind": "prose"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "docPath": "/angular/ms-agent-python/guides/shared-state",
+      "url": "https://docs.copilotkit.ai/angular/ms-agent-python/guides/shared-state.md",
+      "routes": [
+        "/shared-state"
+      ],
+      "title": "Shared state and agent context",
+      "sha256": "975f0dbaefe676784971b1526bd625b8035ebdb1f3ed52501b2fa1d7e40b4181",
+      "bytes": 4731,
+      "lines": 151,
+      "outcome": "unchanged",
+      "severity": "none",
+      "hunks": []
+    },
+    {
+      "docPath": "/angular/ms-agent-python/guides/threads-memory-attachments-headless",
+      "url": "https://docs.copilotkit.ai/angular/ms-agent-python/guides/threads-memory-attachments-headless.md",
+      "routes": [
+        "/threads",
+        "/memory",
+        "/attachments",
+        "/headless"
+      ],
+      "title": "Threads, memory, attachments, and headless UI",
+      "sha256": "07635e13148c8e5361ba544a808fc3c1d2eef13ad063216e2152e6adc82d6076",
+      "bytes": 8950,
+      "lines": 302,
+      "outcome": "unchanged",
+      "severity": "none",
+      "hunks": []
+    }
+  ]
+}

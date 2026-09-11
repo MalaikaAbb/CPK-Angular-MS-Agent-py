@@ -1,8 +1,10 @@
+// chat ui : use a popup or sidebar start
 /**
  * "Use a popup or sidebar", verbatim except for the class name and selector
  * (the guide mounts it as `AppComponent` / `app-root`).
  * https://docs.copilotkit.ai/angular/ms-agent-python/guides/chat-ui
  */
+
 import { Component, signal } from '@angular/core';
 import { CopilotPopup, CopilotSidebar } from '@copilotkit/angular';
 
@@ -29,3 +31,4 @@ export class PopupSidebarComponent {
   readonly popupOpen = signal(false);
   readonly sidebarOpen = signal(false);
 }
+// chat ui : use a popup or sidebar end

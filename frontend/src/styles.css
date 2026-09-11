@@ -3,6 +3,8 @@
 /* Quickstart step "Import the styles". Self-contained — the chat renders
    without any other CSS.
    https://docs.copilotkit.ai/angular/ms-agent-python/quickstart */
+
+/* quickstart : import the styles start */
 @import '@copilotkit/angular/styles.css';
 
 /* ------------------------------------------------------------------ */
@@ -106,11 +108,50 @@ td > code {
   background: var(--code-bar);
 }
 
+.code-figure__path-group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.45rem;
+  min-width: 0;
+}
+
 .code-figure__path {
   color: #b9c6de;
   font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   font-size: 0.72rem;
   word-break: break-all;
+}
+
+.code-figure__copy-path,
+.code-figure__open-ide {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.12rem 0.45rem;
+  border: 1px solid #2f3d5c;
+  border-radius: 0.35rem;
+  background: #141f33;
+  color: #a5b4cd;
+  font-size: 0.68rem;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.15s ease;
+  line-height: 1.2;
+}
+
+.code-figure__copy-path:hover,
+.code-figure__open-ide:hover {
+  background: #22304d;
+  border-color: #3e517a;
+  color: #f1f5f9;
+}
+
+.code-figure__icon {
+  width: 0.85rem;
+  height: 0.85rem;
+  flex-shrink: 0;
 }
 
 .code-figure__meta {
@@ -245,10 +286,7 @@ td > code {
   font-weight: 700;
 }
 
-/* ------------------------------------------------------------------ */
-/* Chat UI guide — "Scope CSS changes"                                 */
-/* https://docs.copilotkit.ai/angular/ms-agent-python/guides/chat-ui              */
-/* ------------------------------------------------------------------ */
+/* chat ui : scope css changes start */
 .support-chat .copilotKitUserMessage {
   color: white;
   background: #2563eb;
@@ -261,11 +299,9 @@ td > code {
   background: #eff6ff;
   border-radius: 0.75rem;
 }
+/* chat ui : scope css changes end */
 
-/* ------------------------------------------------------------------ */
-/* A2UI guide — "Style rendered components"                            */
-/* https://docs.copilotkit.ai/angular/ms-agent-python/guides/a2ui                 */
-/* ------------------------------------------------------------------ */
+/* a2ui : style rendered components start */
 .a2ui-row {
   display: flex;
   flex-wrap: wrap;
@@ -334,3 +370,4 @@ td > code {
   background: #fee2e2;
   color: #991b1b;
 }
+/* a2ui : style rendered components end */

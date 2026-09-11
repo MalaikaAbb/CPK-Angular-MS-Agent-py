@@ -2,29 +2,18 @@ import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 import { BackendHealth } from '../components/backend-health';
-import { DocDriftPanel } from '../components/doc-drift-panel';
 import { RouteHeader } from '../components/route-header';
 import { Callout, Panel, SourceCode } from '../components/ui';
-import { NAV } from '../lib/nav-config';
+import { DOC_SYNC_DATE, NAV } from '../lib/nav-config';
 
 @Component({
   selector: 'app-introduction-page',
-  imports: [
-    RouterLink,
-    RouteHeader,
-    BackendHealth,
-    DocDriftPanel,
-    Panel,
-    Callout,
-    SourceCode,
-  ],
+  imports: [RouterLink, RouteHeader, BackendHealth, Panel, Callout, SourceCode],
   template: `
     <app-route-header path="/" />
 
     <div class="space-y-6">
       <app-backend-health />
-
-      <doc-drift-panel />
 
       <ui-panel heading="What this is">
         <p class="text-sm text-slate-700">
@@ -32,7 +21,7 @@ import { NAV } from '../lib/nav-config';
           section of the
           CopilotKit docs. Every guide listed in the sidebar is a route, and
           each route runs the thing its doc page teaches rather than restating
-          it.
+          it. Docs were last synced on {{ docSyncDate }}.
         </p>
         <p class="mt-3 text-sm text-slate-700">
           Routes with a live feature are split in two: the route itself holds
@@ -95,6 +84,24 @@ OpenAI  (gpt-4o-mini)</code></pre>
         </ul>
       </ui-panel>
 
+      <ui-panel heading="Inspector">
+        <p class="text-sm text-slate-700">
+          <code>/angular/ms-agent-python</code> and
+          <code>/angular/ms-agent-python/quickstart</code> are the same page, so
+          the "Open Inspector and confirm setup" step lands on this route too.
+          As of <code>&#64;copilotkit/angular&#64;0.4.0</code> the package
+          mounts <code>cpk-web-inspector</code> itself, but only inside a
+          running CopilotKit surface and only in dev mode — this notes route
+          has neither, so no button appears here.
+          <a
+            routerLink="/quickstart"
+            class="text-blue-700 underline decoration-dotted"
+            >The Quickstart route</a
+          >
+          carries the step, its three checks, and what was found against them.
+        </p>
+      </ui-panel>
+
       <ui-panel heading="The runtime binding">
         <p class="mb-3 text-sm text-slate-700">
           This is the one file that ties CopilotKit to the Microsoft Agent
@@ -108,4 +115,5 @@ OpenAI  (gpt-4o-mini)</code></pre>
 })
 export default class IntroductionPage {
   protected readonly nav = NAV;
+  protected readonly docSyncDate = DOC_SYNC_DATE;
 }

@@ -9,13 +9,7 @@
  * which all point back at the same `docPath`.
  */
 
-/**
- * There is exactly one doc-sync date in this repo, and it is not here: it is
- * `syncedAt` in `doc-snapshot/manifest.json`, written every time the sync
- * button runs. A hand-maintained date alongside it only ever drifted out of
- * agreement with the machine one, so it was removed — `/doc-sync` is the
- * single place that answers "how current are these docs".
- */
+export const DOC_SYNC_DATE = '2026-08-26';
 export const DOCS_ROOT = 'https://docs.copilotkit.ai/angular/ms-agent-python';
 
 /**
@@ -87,6 +81,15 @@ export const NAV: NavGroup[] = [
           'The smallest end-to-end path: an HttpAgent in Copilot Runtime pointed at the Agent Framework endpoint, provideCopilotKit, and one copilot-chat.',
         status: 'working',
       },
+      {
+        path: '/inspector',
+        hasDemo: true,
+        title: 'Inspector',
+        docPath: '/angular/ms-agent-python/inspector',
+        summary:
+          'The Inspector @copilotkit/angular mounts for you as of 0.4.0 — nothing to install, nothing to mount, and nothing to retract here.',
+        status: 'working',
+      },
     ],
   },
   {
@@ -108,7 +111,9 @@ export const NAV: NavGroup[] = [
         docPath: '/angular/ms-agent-python/guides/frontend-tools-generative-ui',
         summary:
           'A server-side tool call rendered by an Angular component, plus the sandboxed Open Generative UI path.',
-        status: 'working',
+        status: 'partial',
+        statusNote:
+          'All three of the guide’s generative-UI paths are live: the server-side tool call, the browser-executed tool, and registerComponent, which declares show_incident from the browser with no change to the Agent Framework process. The new first section runs, and its published snippet is wrong in four ways. It carries no handler, so core returns an empty tool result and the model apologises for the card it just drew — followUp: false suppresses that and the guide never mentions followUp. It guards on status "in-progress" while the real status is "executing", so the guard never fires and the card paints empty first. The status never reaches "complete" at all, so the gate-on-complete pattern taught higher up the same page would load forever here. And it ships no CSS, so with Angular’s default preserveWhitespaces the card renders as the run-together string INC-4711sev1. Everything is kept verbatim. See the route page.',
       },
       {
         path: '/a2ui',
@@ -198,19 +203,6 @@ export const NAV: NavGroup[] = [
         summary:
           'A transcript and composer built from scratch on injectAgentStore and CopilotKitCore.runAgent.',
         status: 'working',
-      },
-    ],
-  },
-  {
-    title: 'Doc Sync',
-    routes: [
-      {
-        path: '/doc-sync',
-        title: 'Doc drift',
-        docPath: '/angular/ms-agent-python',
-        summary:
-          'Re-fetches the markdown behind every tracked doc page and diffs it against the stored snapshot, flagging changes inside code blocks.',
-        status: 'reference',
       },
     ],
   },

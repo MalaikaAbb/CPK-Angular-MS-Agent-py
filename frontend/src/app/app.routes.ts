@@ -8,6 +8,13 @@ import { AppChrome } from './components/app-chrome';
  * `src/app/lib/nav-config.ts`.
  */
 export const routes: Routes = [
+  // Chrome-free IDE Simulator.
+  {
+    path: 'ide',
+    loadComponent: () =>
+      import('./pages/ide-view.component').then((m) => m.IdeViewComponent),
+  },
+
   // Chrome-free demos.
   {
     path: 'quickstart/demo',
@@ -28,6 +35,10 @@ export const routes: Routes = [
   {
     path: 'voice-multimodal/demo',
     loadComponent: () => import('./pages/demos').then((m) => m.VoiceDemo),
+  },
+  {
+    path: 'inspector/demo',
+    loadComponent: () => import('./pages/demos').then((m) => m.InspectorDemo),
   },
   {
     path: 'human-in-the-loop/demo',
@@ -61,6 +72,7 @@ export const routes: Routes = [
     children: [
       { path: '', loadComponent: () => import('./pages/introduction') },
       { path: 'quickstart', loadComponent: () => import('./pages/quickstart') },
+      { path: 'inspector', loadComponent: () => import('./pages/inspector') },
       { path: 'chat-ui', loadComponent: () => import('./pages/chat-ui') },
       {
         path: 'frontend-tools-generative-ui',
@@ -87,7 +99,6 @@ export const routes: Routes = [
       },
       { path: 'headless', loadComponent: () => import('./pages/headless') },
       { path: 'status', loadComponent: () => import('./pages/status') },
-      { path: 'doc-sync', loadComponent: () => import('./pages/doc-sync') },
       { path: '**', redirectTo: '' },
     ],
   },

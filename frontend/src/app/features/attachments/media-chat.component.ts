@@ -1,8 +1,10 @@
+// attachments : enable attachments start
 /**
  * "Enable attachments", verbatim. Without `onUpload`, files are read as base64
  * and travel inline with the message.
  * https://docs.copilotkit.ai/angular/ms-agent-python/guides/threads-memory-attachments-headless
  */
+
 import { Component } from '@angular/core';
 import { CopilotChat, type AttachmentsConfig } from '@copilotkit/angular';
 
@@ -12,6 +14,7 @@ import { CopilotChat, type AttachmentsConfig } from '@copilotkit/angular';
   template: ` <copilot-chat [attachments]="attachments" /> `,
 })
 export class MediaChatComponent {
+  // attachments : attachments config start
   protected readonly attachments: AttachmentsConfig = {
     enabled: true,
     accept: 'image/*,application/pdf',
@@ -20,4 +23,6 @@ export class MediaChatComponent {
       console.error(error.reason, error.message);
     },
   };
+  // attachments : attachments config end
 }
+// attachments : enable attachments end

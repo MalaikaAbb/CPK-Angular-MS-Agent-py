@@ -1,8 +1,11 @@
+// memory : read and manage memory start
 /**
- * "Read and manage memory", verbatim. The `isAvailable()` gate is the point of
- * the sample: a runtime may not provide the memory routes at all.
- * https://docs.copilotkit.ai/angular/ms-agent-python/guides/threads-memory-attachments-headless
+ * "Configure attachments", verbatim: the guide's `MULTIMODAL_ATTACHMENTS`
+ * config bound to the chat exactly as its `media-chat.component.html` snippet
+ * shows. The microphone control needs no option — it is always present.
+ * https://docs.copilotkit.ai/angular/ms-agent-python/guides/voice-multimodal
  */
+
 import { Component } from '@angular/core';
 import { injectMemories } from '@copilotkit/angular';
 
@@ -22,7 +25,9 @@ import { injectMemories } from '@copilotkit/angular';
   `,
 })
 export class MemoryListComponent {
+  // memory : inject memories start
   readonly memory = injectMemories();
+  // memory : inject memories end
 
   protected remove(id: string): void {
     this.memory.removeMemory(id).catch(() => undefined);
@@ -37,3 +42,4 @@ export class MemoryListComponent {
       .catch(() => undefined);
   }
 }
+// memory : read and manage memory end

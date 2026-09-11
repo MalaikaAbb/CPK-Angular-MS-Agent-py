@@ -1,3 +1,4 @@
+// chat ui : use a sidebar start
 /**
  * The sidebar half of the guide's "Use a popup or sidebar" sample, on its own
  * host. Bindings are the guide's, unchanged.
@@ -7,6 +8,7 @@
  *
  * https://docs.copilotkit.ai/angular/ms-agent-python/guides/chat-ui
  */
+
 import { Component, signal } from '@angular/core';
 import { CopilotSidebar } from '@copilotkit/angular';
 
@@ -26,3 +28,4 @@ import { CopilotSidebar } from '@copilotkit/angular';
 export class SidebarOnlyComponent {
   readonly sidebarOpen = signal(false);
 }
+// chat ui : use a sidebar end

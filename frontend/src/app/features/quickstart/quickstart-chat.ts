@@ -1,10 +1,4 @@
-/**
- * Quickstart step "Add the chat UI", verbatim.
- * https://docs.copilotkit.ai/angular/ms-agent-python/quickstart
- *
- * Only the selector and class name differ from the doc (which mounts this as
- * the app root); the template and imports are unchanged.
- */
+// quickstart : add the chat ui start
 import { Component } from '@angular/core';
 import { CopilotChat } from '@copilotkit/angular';
 
@@ -18,3 +12,4 @@ import { CopilotChat } from '@copilotkit/angular';
   `,
 })
 export class QuickstartChat {}
+// quickstart : add the chat ui end

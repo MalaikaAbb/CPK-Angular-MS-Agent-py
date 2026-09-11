@@ -1,5 +1,4 @@
-# #//////// BACKEND CODE FOR QUICKSTART, TOOL RENDERING, SHARED STATE, AUTH //////////////////////
-
+# quickstart : connect the selected agent backend
 from __future__ import annotations
 import os
 import uvicorn
@@ -18,7 +17,8 @@ load_dotenv()
 class SearchItem(BaseModel):
     query: str
     done: bool
-    
+
+# shared state : state schema start
 STATE_SCHEMA: dict[str, object] = {
     "language": {
         "type": "string",
@@ -29,15 +29,19 @@ STATE_SCHEMA: dict[str, object] = {
 PREDICT_STATE_CONFIG: dict[str, dict[str, str]] = {
     "language": {"tool": "update_language", "tool_argument": "language"}
 }
+# shared state : state schema end
 
+# frontend tools : server tool getWeather start
 @tool
 def getWeather(
     location: Annotated[str, Field(description="The location to get weather for")],
 ) -> str:
     normalized = location.strip() or "the requested location"
     return f"The weather for {normalized} is 70 degrees."
+# frontend tools : server tool getWeather end
 
 
+# shared state : update language tool start
 @tool
 def update_language(
     language: Annotated[str, Field(description="Preferred language: 'english' or 'spanish'")],
@@ -46,6 +50,7 @@ def update_language(
     if normalized not in ("english", "spanish"):
         return "Language unchanged. Use 'english' or 'spanish'."
     return f"Language updated to {normalized}."
+# shared state : update language tool end
 
 
 def _build_chat_client():
@@ -66,6 +71,7 @@ def _build_chat_client():
 
 
 
+# shared state : agent with state schema start
 def create_agent(chat_client: SupportsChatGetResponse) -> AgentFrameworkAgent:
     base_agent = Agent(
         name="sample_agent",
@@ -81,6 +87,7 @@ def create_agent(chat_client: SupportsChatGetResponse) -> AgentFrameworkAgent:
         predict_state_config=PREDICT_STATE_CONFIG, 
         require_confirmation=False,
     )
+# shared state : agent with state schema end
     
 
 chat_client = _build_chat_client()
@@ -96,7 +103,9 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+# quickstart : expose agent framework endpoint start
 add_agent_framework_fastapi_endpoint(app=app, agent=agent, path="/")
+# quickstart : expose agent framework endpoint end
 
 if __name__ == "__main__":
     uvicorn.run("main:app", host="0.0.0.0", port=8200, reload=True)

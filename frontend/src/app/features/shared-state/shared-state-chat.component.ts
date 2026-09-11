@@ -1,8 +1,10 @@
+// shared state : shared state chat start
 /**
  * Mounts the guide's three surfaces against one chat: the read/write state
  * panel, the accessor-based context, and the directive-based context.
  * https://docs.copilotkit.ai/angular/ms-agent-python/guides/shared-state
  */
+
 import { Component } from '@angular/core';
 import { CopilotChat } from '@copilotkit/angular';
 
@@ -32,3 +34,4 @@ import { WorkspaceComponent } from './workspace.component';
   `,
 })
 export class SharedStateChatComponent {}
+// shared state : shared state chat end

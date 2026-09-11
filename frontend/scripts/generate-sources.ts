@@ -18,23 +18,30 @@ const TARGETS = [
   'src/styles.css',
   'src/app/app.config.ts',
   'src/app/features',
+  '../backend/main.py',
+  '../backend/pyproject.toml',
+  '../backend/.env.example',
 ];
 
-const EXTENSIONS = ['.ts', '.html', '.css'];
+const EXTENSIONS = ['.ts', '.html', '.css', '.py', '.toml', '.example', '.json'];
 
 function walk(absolute: string, out: string[]): void {
-  if (!statSync(absolute).isDirectory()) {
-    out.push(absolute);
-    return;
-  }
-  for (const entry of readdirSync(absolute).sort()) {
-    const child = join(absolute, entry);
-    if (statSync(child).isDirectory()) {
-      walk(child, out);
-    } else if (EXTENSIONS.some((ext) => entry.endsWith(ext))) {
-      out.push(child);
+  try {
+    if (!statSync(absolute).isDirectory()) {
+      out.push(absolute);
+      return;
     }
-  }
+    for (const entry of readdirSync(absolute).sort()) {
+      const child = join(absolute, entry);
+      try {
+        if (statSync(child).isDirectory()) {
+          walk(child, out);
+        } else if (EXTENSIONS.some((ext) => entry.endsWith(ext))) {
+          out.push(child);
+        }
+      } catch {}
+    }
+  } catch {}
 }
 
 const files: string[] = [];

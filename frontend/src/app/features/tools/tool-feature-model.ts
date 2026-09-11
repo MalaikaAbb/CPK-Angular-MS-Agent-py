@@ -1,3 +1,4 @@
+// frontend tools : register a browser tool (change_background) start
 /**
  * The guide's `change_background` frontend tool.
  * https://docs.copilotkit.ai/angular/ms-agent-python/guides/frontend-tools-generative-ui
@@ -7,6 +8,7 @@
  * its `BackgroundToolArgs` type, its `resolveGradient` helper, or its imports,
  * so those are defined here to make it runnable.
  */
+
 import { type WritableSignal } from '@angular/core';
 import { type FrontendToolConfig } from '@copilotkit/angular';
 import { z } from 'zod';
@@ -66,3 +68,4 @@ export function createBackgroundTool(
     },
   };
 }
+// frontend tools : register a browser tool (change_background) end

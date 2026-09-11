@@ -1,3 +1,4 @@
+// a2ui : a2ui chat start
 /**
  * A2UI needs no component-level wiring: the runtime applies A2UIMiddleware
  * (`a2ui: {}` in frontend/server.ts) and, per the guide, "on the frontend, the
@@ -7,6 +8,7 @@
  * src/app/app.config.ts, and its catalog CSS lives in src/styles.css.
  * https://docs.copilotkit.ai/angular/ms-agent-python/guides/a2ui
  */
+
 import { Component } from '@angular/core';
 import { CopilotChat } from '@copilotkit/angular';
 
@@ -20,3 +22,4 @@ import { CopilotChat } from '@copilotkit/angular';
   `,
 })
 export class A2uiChatComponent {}
+// a2ui : a2ui chat end
