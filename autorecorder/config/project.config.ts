@@ -101,11 +101,11 @@ export const PROJECT: ProjectConfig = {
 
   // `ng serve`, not Next. All three are env-overridable, which is how a run
   // moves off a port another project is already holding:
-  //   PORT=8300 uv run main.py                                      (backend)
-  //   MICROSOFT_AGENT_FRAMEWORK_URL=http://localhost:8300/ npm run dev
-  //   BACKEND_URL=http://localhost:8300 npm run record              (here)
-  frontendUrl: process.env.FRONTEND_URL || 'http://localhost:4202',
-  backendUrl: process.env.BACKEND_URL || 'http://localhost:8200',
+  //   PORT=8221 uv run main.py                                      (backend)
+  //   MICROSOFT_AGENT_FRAMEWORK_URL=http://localhost:8221/ npm run dev
+  //   BACKEND_URL=http://localhost:8221 npm run record              (here)
+  frontendUrl: process.env.FRONTEND_URL || 'http://localhost:4220',
+  backendUrl: process.env.BACKEND_URL || 'http://localhost:8221',
   // FastAPI + Uvicorn, with a single `POST /` mounted by
   // add_agent_framework_fastapi_endpoint -- so there is no health route and a
   // GET on `/` answers 405. /openapi.json is the endpoint that is always there
@@ -114,7 +114,7 @@ export const PROJECT: ProjectConfig = {
   backendHealthPath: '/openapi.json',
 
   // One command starts both frontend processes: `npm run dev` runs the Copilot
-  // Runtime (frontend/server.ts, port 8201) and `ng serve` (port 4200) together.
+  // Runtime (frontend/server.ts, port 8220) and `ng serve` (port 4220) together.
   frontendStartCmd: 'cd frontend && npm run dev',
   backendStartCmd: 'cd backend && uv run main.py',
 
@@ -123,7 +123,7 @@ export const PROJECT: ProjectConfig = {
 
   // Angular has no server route to host the runtime, so it runs as its own Node
   // process and the browser posts across origins to it. The Agent Framework
-  // backend already owns 8200, so the runtime binds 8201 (see the port note at
+  // backend already owns 8221, so the runtime binds 8220 (see the port note at
   // the top of frontend/server.ts). That makes the warm target an absolute URL
   // rather than a path under frontendUrl -- `new URL(absolute, base)` returns
   // the absolute, so this needs no engine change.
@@ -133,7 +133,7 @@ export const PROJECT: ProjectConfig = {
   // connection to the Agent Framework process, and /info is a real GET endpoint
   // that exercises exactly that path.
   runtimeWarmPath:
-    process.env.RUNTIME_URL || 'http://localhost:8201/api/copilotkit/info',
+    process.env.RUNTIME_URL || 'http://localhost:8220/api/copilotkit/info',
 };
 
 /** Absolute doc URL for a page's `docPath`. */

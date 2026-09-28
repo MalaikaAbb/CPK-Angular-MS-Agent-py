@@ -17,9 +17,14 @@
  * person would open one.
  */
 import { type Page } from 'playwright';
-import { humanClick, humanGlide, sleep } from '../core/overlays/cursor';
+import { beat, humanClick, humanGlide, sleep } from '../core/overlays/cursor';
 
 export interface NotepadPosition {
+  /**
+   * Body font size, e.g. `'20px'`. Defaults to Notepad's real 13.5px, which is
+   * too small to read back on a 1080p capture when the note IS the point of the shot.
+   */
+  fontSize?: string;
   top?: string;
   left?: string;
   right?: string;
@@ -59,9 +64,10 @@ export async function openNotepadWindow(
   const height = pos?.height ?? '460px';
   const transform =
     pos?.transform ?? (pos?.right ? 'none' : 'translateX(-50%) scale(0.96)');
+  const fontSize = pos?.fontSize ?? '13.5px';
 
   await page.evaluate(
-    ({ titleStr, sTop, sLeft, sRight, sWidth, sHeight, sTransform }) => {
+    ({ titleStr, sTop, sLeft, sRight, sWidth, sHeight, sTransform, sFont }) => {
       const ind = document.getElementById('win11-notepad-indicator');
       if (ind) ind.style.background = '#60a5fa';
 
@@ -85,7 +91,7 @@ export async function openNotepadWindow(
         '<div style="height:26px;background:#202020;display:flex;align-items:center;gap:16px;padding:0 14px;font-size:11px;color:#a3a3a3;border-bottom:1px solid rgba(255,255,255,0.06);user-select:none;">',
         '  <span>File</span><span>Edit</span><span>View</span>',
         '</div>',
-        '<div id="notepad-content-body" style="flex:1;padding:16px;background:#1e1e1e;color:#f3f3f3;font-family:Consolas,Courier New,monospace;font-size:13.5px;line-height:1.65;white-space:pre-wrap;overflow-y:auto;"></div>',
+        '<div id="notepad-content-body" style="flex:1;padding:16px;background:#1e1e1e;color:#f3f3f3;font-family:Consolas,Courier New,monospace;font-size:' + sFont + ';line-height:1.65;white-space:pre-wrap;overflow-y:auto;"></div>',
       ].join('');
 
       document.documentElement.appendChild(np);
@@ -110,6 +116,7 @@ export async function openNotepadWindow(
       sWidth: width,
       sHeight: height,
       sTransform: transform,
+      sFont: fontSize,
     },
   );
 
@@ -176,7 +183,7 @@ export async function showNotepadNote(
 ): Promise<void> {
   await openNotepadWindow(page, title);
   await typeInNotepad(page, textLines, 960, 240);
-  await sleep(4000);
+  await beat(4000);
 }
 
 /** Smoothly closes the Notepad overlay and dims the taskbar indicator */

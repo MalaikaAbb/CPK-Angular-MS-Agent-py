@@ -17,17 +17,30 @@
  * — it is a runtime-side middleware and is independent of which agent binding
  * is used.
  *
- * Ports: backend/main.py binds 8200, so the runtime moved to 8201. Override
+ * Ports: backend/main.py binds 8221, so the runtime moved to 8220. Override
  * either side with PORT / MICROSOFT_AGENT_FRAMEWORK_URL.
  */
 // quickstart : copilot runtime
 import { createServer } from "node:http";
-import { CopilotRuntime } from "@copilotkit/runtime/v2";
+import { CopilotRuntime, CopilotKitIntelligence } from "@copilotkit/runtime/v2";
 import { createCopilotNodeListener } from "@copilotkit/runtime/v2/node";
 import { HttpAgent } from "@ag-ui/client";
 
 const agentUrl =
-  process.env["MICROSOFT_AGENT_FRAMEWORK_URL"] ?? "http://localhost:8200/";
+  process.env["MICROSOFT_AGENT_FRAMEWORK_URL"] ?? "http://localhost:8221/";
+
+/**
+ * Intelligence client, verbatim from
+ * https://docs.copilotkit.ai/angular/ms-agent-python/intelligence/connect-your-runtime
+ * ("Wire the runtime"). Thread endpoints are served by Intelligence, so the
+ * Threads guide's `injectThreads` list and `CopilotThreadsDrawer` resolve to
+ * nothing until this is passed — which that guide never says.
+ *
+ * `apiUrl`/`wsUrl` default to the managed platform, so both stay unset.
+ */
+const intelligence = new CopilotKitIntelligence({
+  apiKey: process.env["CPK_INTELLIGENCE_API_KEY"]!,
+});
 
 // quickstart : copilot runtime start
 const runtime = new CopilotRuntime({
@@ -40,10 +53,16 @@ const runtime = new CopilotRuntime({
   // a2ui : enable a2ui middleware start
   a2ui: {},
   // a2ui : enable a2ui middleware end
+  intelligence,
+  // Threads are per-user. Without this every visitor shares one history.
+  identifyUser: (request) => ({
+    id: request.headers.get("x-user-id") ?? "anonymous",
+    name: request.headers.get("x-user-name") ?? "Anonymous",
+  }),
 });
 // quickstart : copilot runtime end
 
-const port = Number(process.env["PORT"] ?? 8201);
+const port = Number(process.env["PORT"] ?? 8220);
 
 // quickstart : create copilot node listener start
 createServer(

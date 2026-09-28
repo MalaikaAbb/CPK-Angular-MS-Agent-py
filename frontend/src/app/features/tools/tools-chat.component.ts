@@ -16,7 +16,7 @@
  * displays, with no handler and nothing on the agent side. `show_incident` is
  * declared here by the frontend and forwarded to the agent over AG-UI, so the
  * Agent Framework process never learns about it. Needs @copilotkit/angular
- * 0.5.0 or newer; this repo runs 0.5.1.
+ * 0.5.0 or newer; this repo runs 0.5.2.
  *
  * The guide's other `registerFrontendTool` sample is a second `getWeather`
  * that runs in the browser. It is not mounted: it would collide with the

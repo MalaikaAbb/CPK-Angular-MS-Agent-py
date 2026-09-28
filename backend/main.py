@@ -62,7 +62,7 @@ def _build_chat_client():
         )
     if os.getenv("OPENAI_API_KEY"):
         return OpenAIChatClient(
-            model=os.getenv("OPENAI_CHAT_MODEL_ID", "gpt-4o-mini"),
+            model=os.getenv("OPENAI_CHAT_MODEL_ID", "gpt-5.4-mini"),
             api_key=os.getenv("OPENAI_API_KEY"),
         )
     raise RuntimeError(
@@ -108,5 +108,5 @@ add_agent_framework_fastapi_endpoint(app=app, agent=agent, path="/")
 # quickstart : expose agent framework endpoint end
 
 if __name__ == "__main__":
-    uvicorn.run("main:app", host="0.0.0.0", port=8200, reload=True)
+    uvicorn.run("main:app", host="0.0.0.0", port=8221, reload=True)
 

@@ -60,8 +60,7 @@ const RESERVED_PREFIX = 'reserved:';
  * Reserving the slot keeps the number attached to the guide rather than to
  * whatever this repo happens to record. A reserved entry exists only to occupy
  * an index — it is filtered out below, before `definePages`' result is
- * exported, so no doctor check, CLI flag, shard split or recording ever sees
- * one. Its fields are placeholders for that reason.
+ * exported, so no doctor check, CLI flag or recording ever sees one. Its fields are placeholders for that reason.
  *
  * When the demo does land, replace the `reserve(...)` call with the real entry
  * in place and the number it has always been reserved for is the one it gets.
@@ -92,8 +91,9 @@ export const PAGES = definePages([
     // legible in one frame.
     // Leads with the versions, not the manifest. package.json declares
     // RANGES, so this clip used to show a floor while the run it
-    // documented had installed something newer. VERSIONS.md is generated
-    // after install (ci/write-versions.mjs) and names what resolved.
+    // documented had installed something newer. VERSIONS.md names what
+    // resolved; it is generated locally by autorecorder/scripts/write-versions.mjs
+    // (run by `npm run doctor`) and not committed.
     // package.json stays as the first tab: the range is still what a
     // reader would write in their own project.
     ideFile: 'frontend/VERSIONS.md',
@@ -243,6 +243,14 @@ export const PAGES = definePages([
       },
     ],
     prompt: 'Please delete my account. Check with me before you actually do it.',
+    // When the agent asks in prose instead of calling requestApproval, the take
+    // answers it -- up to twice -- so the clip shows where the conversation goes
+    // next. Each unanswered turn is named in the verdict (see hitl.action.ts).
+    prompts: [
+      'Please delete my account. Check with me before you actually do it.',
+      'Yes, delete my account.',
+      'Yes, go ahead.',
+    ],
     waitAfterPromptMs: 4000,
   },
   {
@@ -294,13 +302,13 @@ export const PAGES = definePages([
       },
       {
         filePath: 'frontend/src/app/features/threads/threads-demo.component.ts',
-        startLine: 10,
-        endLine: 34,
+        startLine: 24,
+        endLine: 47,
       },
     ],
-    // Thread endpoints are licensed. Unlicensed, the hand-built list stays empty
-    // and the drawer renders its locked state — which is the expected result,
-    // and what this recording documents. The chat beside it answers normally.
+    // Both surfaces work: frontend/server.ts passes `intelligence`, so the
+    // hand-built list and the drawer resolve real threads. The guide never
+    // says that is required; that finding is reported, not typed on screen.
     prompt: 'In one line, what are threads for?',
     waitAfterPromptMs: 4000,
   },
@@ -308,24 +316,6 @@ export const PAGES = definePages([
   // Memory is a premium component, unavailable in this runtime.
   reserve('memory'),
 
-  {
-    id: 'attachments',
-    name: 'Attachments',
-    videoName: 'Attachments',
-    docPath: 'guides/threads-memory-attachments-headless',
-    route: 'attachments',
-    // `attachments : enable attachments` and the config block inside it.
-    ideFile: 'frontend/src/app/features/attachments/media-chat.component.ts',
-    startLine: 11,
-    endLine: 27,
-    // Asks for two values that exist only inside the attached image, so a
-    // correct answer is proof the file reached the model. A generic "what types
-    // of attachments are supported?" could be answered from the system prompt
-    // alone, which is how a broken upload comes to look fine on video.
-    prompt:
-      'I attached a chart. What is its title, and what is the Q4 number?',
-    waitAfterPromptMs: 4000,
-  },
   {
     id: 'headless',
     name: 'Headless UI',
@@ -377,5 +367,30 @@ export const PAGES = definePages([
     // run has to happen before the panel is opened.
     prompt: 'Quick check: what is 17 times 23?',
     waitAfterPromptMs: 4000,
+  },
+  // ── Findings clip (1-Demos/DEMO_SCRIPT.md) ─────────────────────────────────
+  // Not a doc-nav page: the A2UI guide's code compiled verbatim. The `a2ui`
+  // slot above stays reserved (no working A2UI demo yet), so this clip is
+  // appended and numbering elsewhere is unchanged. The engine intro shows the
+  // doc and the harness's A2UI wiring, and `route` is the plain A2UI chat (the
+  // engine needs `chatReady` there before the handler runs). The handler
+  // (actions/compile-demos.action.ts) then plays the script: doc snippets, the
+  // verbatim file, the real `ng serve` error, and typed notes. No prompt is
+  // sent; `prompt` only satisfies the registry contract.
+  {
+    id: 'a2ui-compile',
+    name: 'Findings - A2UI. Undefined names (pending approval)',
+    videoName: 'A2uiUndefinedNames',
+    docPath: 'guides/a2ui',
+    route: 'a2ui',
+    // `a2ui : recover incomplete streams start|end`: recovery and no catalog,
+    // what the harness can do from the guide.
+    ideFile: 'frontend/src/app/app.config.ts',
+    startLine: 53,
+    endLine: 57,
+    extraTabs: [
+      { filePath: 'frontend/src/app/features/a2ui/a2ui-chat.component.ts', startLine: 12, endLine: 24 },
+    ],
+    prompt: 'No prompt: this take compiles the guide code (see actions/compile-demos.action.ts).',
   },
 ]).filter((page) => !page.id.startsWith(RESERVED_PREFIX));

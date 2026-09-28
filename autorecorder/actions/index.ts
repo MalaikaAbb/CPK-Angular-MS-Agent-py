@@ -28,8 +28,8 @@
  *   ctx.warn('"Mark high priority" button not found')  -> [PASS*] with the note
  *   ctx.fail('approval card never rendered')           -> [FAIL], clip still saved
  *
- * A `console.warn` reaches nobody: the summary, videos/RECORD_RESULTS.json and
- * the CI report only see what goes through `ctx`.
+ * A `console.warn` reaches nobody: the summary and videos/RECORD_RESULTS.json
+ * only see what goes through `ctx`.
  */
 
 import { type ActionContext, type PageActionHandler, type PageRecordConfig } from '../core/types';
@@ -38,13 +38,11 @@ import { type Page } from 'playwright';
 
 import { waitForPageReady } from './page-ready';
 
-import { runA2uiAction } from './a2ui.action';
-import { runAttachmentsAction } from './attachments.action';
 import { runChatUiAction } from './chat-ui.action';
+import { runA2uiCompileAction } from './compile-demos.action';
 import { runHeadlessAction } from './headless.action';
 import { runHitlAction } from './hitl.action';
 import { runInspectorAction } from './inspector.action';
-import { runMemoryAction } from './memory.action';
 import { runSharedStateAction } from './shared-state.action';
 import { runThreadsAction } from './threads.action';
 import { runToolsAction } from './tools.action';
@@ -61,12 +59,15 @@ export const ACTION_MAP: Record<string, PageActionHandler> = {
   'human-in-the-loop': runHitlAction,
   'shared-state': runSharedStateAction,
   threads: runThreadsAction,
-  attachments: runAttachmentsAction,
   headless: runHeadlessAction,
   // The Inspector page's own subject is the panel, so the clip has to open
   // it. Falling through to runStandardAction here recorded a chat and
   // nothing else.
   inspector: runInspectorAction,
+  // Findings clip: the A2UI guide's code compiled through the doc-a2ui build
+  // config, errors replayed from a real `ng serve` capture. See
+  // actions/compile-demos.action.ts.
+  'a2ui-compile': runA2uiCompileAction,
 };
 
 export async function executePageAction(

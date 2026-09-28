@@ -1,5 +1,5 @@
 /**
- * Automated Screen Recording & Demonstration Pipeline
+ * Screen Recording & Demonstration Runner
  * Entrypoint & CLI runner
  */
 import { mkdirSync, writeFileSync } from 'node:fs';
@@ -11,7 +11,8 @@ import { PROJECT } from './config/project.config';
 import { checkServicesHealth } from './core/diagnostics';
 import { RecordingEngine } from './core/engine';
 import { runDoctor } from './core/doctor';
-import { parseShard, selectPages } from './core/select';
+import { prewarmDemoRoutes } from './core/prewarm';
+import { selectPages } from './core/select';
 
 const __dirname = fileURLToPath(new URL('.', import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -20,9 +21,9 @@ const VIDEOS_DIR = join(__dirname, 'videos');
 /**
  * Per-run results, next to the videos.
  *
- * Page recordings had no record of their own, so the CI report listed every
- * `.webm` in the folder and marked them all "Recorded" — a run of one page
- * reported five, four of them days old. This is what the report reads instead.
+ * Page recordings had no record of their own, so anything summarising a run
+ * could only list every `.webm` in the folder — a run of one page looked like
+ * five, four of them days old. This file says what the run actually recorded.
  */
 export const RESULTS_FILE = 'RECORD_RESULTS.json';
 
@@ -88,7 +89,6 @@ Selection (default: every page, in nav order)
   --filter=<text>            pages whose id or name contains the text
   <word> [<word> ...]        same as --filter, for each word
   --limit=<n>                first n of the selection (--first=, --count=)
-  --shard=<k>/<n>            slice k of n, for matrix workers
 
 Options
   --list, -l                 print every registered page and exit
@@ -129,7 +129,6 @@ const OPTIONS = {
   limit: { type: 'string' },
   first: { type: 'string' },
   count: { type: 'string' },
-  shard: { type: 'string' },
 } as const;
 
 async function main(): Promise<void> {
@@ -175,35 +174,17 @@ async function main(): Promise<void> {
 
   const limitRaw = values.limit ?? values.first ?? values.count;
   const limit = limitRaw ? Number.parseInt(String(limitRaw), 10) : undefined;
-  const shard = parseShard(values.shard ? String(values.shard) : undefined);
-  if (values.shard && !shard) {
-    console.error(`❌ --shard expects K/N, got "${values.shard}"`);
-    process.exit(1);
-  }
 
   const idList = values.pages ?? values.only;
-  const { pages: targetPages, shard: applied } = selectPages(PAGES, {
+  const { pages: targetPages } = selectPages(PAGES, {
     ids: idList ? String(idList).split(',').map((s) => s.trim()).filter(Boolean) : undefined,
     page: values.page ? String(values.page) : pageWord,
     filter: values.filter ? String(values.filter) : undefined,
     queries,
     limit: limit && Number.isFinite(limit) ? limit : undefined,
-    shard,
   });
 
-  if (applied) {
-    console.log(
-      `\n🧩 [Matrix Sharding]: Worker Shard ${applied.index}/${applied.total} -> Recording ${targetPages.length} pages (index ${applied.from + 1} to ${applied.to})`,
-    );
-  }
-
   if (targetPages.length === 0) {
-    // A shard with nothing to do is normal when there are fewer pages than
-    // workers; failing it would fail the matrix for no reason.
-    if (applied) {
-      console.log(`\nℹ️ [Matrix Sharding]: No pages assigned to this worker shard. Exiting cleanly.`);
-      process.exit(0);
-    }
     console.error(`❌ No matching page found for: ${rawArgs.join(' ') || '(nothing)'}`);
     console.log(`Available page IDs: ${PAGES.map((p) => p.id).join(', ')}`);
     console.log(`Tip: run \`npm run record -- --list\` to view all routes.`);
@@ -222,6 +203,8 @@ async function main(): Promise<void> {
   const results: PageResult[] = [];
   const suiteStartTime = Date.now();
 
+  await prewarmDemoRoutes(targetPages);
+
   for (const pageConfig of targetPages) {
     const pageStartTime = Date.now();
     const res = await engine.recordPage(pageConfig);
@@ -238,6 +221,8 @@ async function main(): Promise<void> {
       consoleErrors: res.consoleErrors,
     });
   }
+
+  await engine.shutdown();
 
   const totalDuration = ((Date.now() - suiteStartTime) / 1000).toFixed(1);
   const failedCount = results.filter((r) => !r.success).length;

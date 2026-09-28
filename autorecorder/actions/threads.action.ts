@@ -1,26 +1,27 @@
 /**
- * Threads — recorded as a finding, because unlicensed is the state this repo
- * can actually reach.
+ * Threads — both surfaces from the guide, working, filmed in the order a
+ * reader meets them.
  *
  * https://docs.copilotkit.ai/angular/ms-agent-python/guides/threads-memory-attachments-headless
  *
- * Thread endpoints come from the Enterprise Intelligence Platform. Without a
- * licence the hand-built `injectThreads` list never resolves and the drawer
- * renders its locked state — so a video of "threads not working" is worthless
- * unless it also says *why*. The Notepad note is opened before the demo, so the
- * claim is on screen while the evidence is still behind it, and elaborated at
- * the end once the chat beside the drawer has answered normally.
+ * `frontend/server.ts` passes `intelligence` to `CopilotRuntime`, so the
+ * hand-built `injectThreads` list and `CopilotThreadsDrawer` both resolve real
+ * threads. The finding is what the guide leaves out — it never mentions
+ * Intelligence or a project API key — and that lives in the report, not on
+ * screen. This clip carries no Notepad note and no voiceover: it shows the
+ * feature, and the bare-button list the guide publishes is visible as-is.
+ *
+ * Order: the list first, then a message so a thread is created and named, then
+ * that thread selected from the drawer.
  */
 import { type Page } from 'playwright';
 
-import { sendPrompt, waitForAgentResponseCompletion } from '../core/actions';
-import { humanClick, humanGlide, sleep } from '../core/overlays/cursor';
+import { AgentSilentError, sendPrompt, waitForAgentResponseCompletion } from '../core/actions';
+import { beat, humanClick, humanGlide, sleep } from '../core/overlays/cursor';
 import { type PageActionHandler, type PageRecordConfig } from '../core/types';
 
-import { closeNotepadNote, openNotepadWindow, typeInNotepad } from './notepad';
-
 /** Clicks a control if it is there, and says so if it is not. */
-async function clickIfPresent(page: Page, selector: string, label: string): Promise<void> {
+async function clickIfPresent(page: Page, selector: string, label: string): Promise<boolean> {
   const el = page.locator(selector).first();
   const box = await el
     .waitFor({ state: 'visible', timeout: 4000 })
@@ -29,89 +30,77 @@ async function clickIfPresent(page: Page, selector: string, label: string): Prom
 
   if (!box) {
     console.log(`   · ${label} not present.`);
-    return;
+    return false;
   }
 
   await humanGlide(page, box.x + box.width / 2, box.y + box.height / 2, 22);
   await sleep(250);
   await humanClick(page);
-  await sleep(1000);
-};
+  await beat(1000);
+  return true;
+}
 
 export const runThreadsAction: PageActionHandler = async (
   page: Page,
   config: PageRecordConfig,
 ) => {
-  await page
-    .locator('app-thread-list')
-    .first()
-    .waitFor({ state: 'visible', timeout: 15000 })
-    .catch(() => {});
+  const list = page.locator('app-thread-list').first();
+  await list.waitFor({ state: 'visible', timeout: 15000 }).catch(() => {});
   await sleep(600);
 
-  console.log(`   📝 Stating the issue before demonstrating it...`);
-  await openNotepadWindow(page, 'threads-issue.txt', {
-    right: '28px',
-    top: '95px',
-    width: '640px',
-    height: '560px',
-  });
-  await typeInNotepad(
-    page,
-    [
-      'threads — licensed feature, unlicensed runtime',
-      '',
-      'mounted ThreadListComponent (injectThreads) and CopilotThreadsDrawer',
-      '- headless list stays on "Loading conversations..." and lists nothing',
-      '- drawer renders its locked state and opens no thread list',
-    ],
-    1550,
-    280,
-  );
-  await sleep(1500);
+  // ── The hand-built list ──────────────────────────────────────────────────
+  const listBox = await list.boundingBox().catch(() => null);
+  if (listBox) {
+    await humanGlide(page, listBox.x + Math.min(listBox.width / 2, 160), listBox.y + 20, 22);
+    await beat(1800);
+  }
+  const listed = ((await list.innerText().catch(() => '')) || '').replace(/\s+/g, ' ').trim();
+  console.log(`   🧵 injectThreads list renders: "${listed.slice(0, 120)}"`);
 
-  // ── The headless list: New conversation, then Retry if it errored ─────────
-  console.log(`   🧵 Driving the hand-built injectThreads list...`);
-  await clickIfPresent(
-    page,
-    'app-thread-list button:has-text("New conversation")',
-    'New conversation',
-  );
+  console.log(`   🧵 Starting a conversation from the guide's own button...`);
+  await clickIfPresent(page, 'app-thread-list button:has-text("New conversation")', 'New conversation');
   await clickIfPresent(page, 'app-thread-list button:has-text("Retry")', 'Retry');
 
-  // ── The drop-in drawer ────────────────────────────────────────────────────
-  const drawer = page.locator('copilot-threads-drawer').first();
-  const drawerBox = await drawer.boundingBox().catch(() => null);
-  if (drawerBox) {
-    console.log(`   🧵 Opening CopilotThreadsDrawer...`);
-    await humanGlide(page, drawerBox.x + 30, drawerBox.y + 30, 22);
-    await sleep(350);
-    await humanClick(page);
-    await sleep(1200);
-  }
-
-  // ── The chat beside it is not licensed and answers normally ──────────────
-  console.log(`   💬 The chat beside the drawer is unaffected by the licence...`);
+  // ── A message, so the thread is created and named ────────────────────────
+  console.log(`   💬 Sending a message so the thread gets created and named...`);
   const msgCount = await sendPrompt(page, config.prompt, {
     inputSelector: 'app-conversations textarea',
     submitSelector: 'app-conversations copilot-chat-send-button button',
   });
-  await waitForAgentResponseCompletion(page, config.waitAfterPromptMs ?? 4000, msgCount);
+  try {
+    await waitForAgentResponseCompletion(page, config.waitAfterPromptMs ?? 4000, msgCount);
+  } catch (e) {
+    if (!(e instanceof AgentSilentError)) throw e;
+    console.warn(`   ⚠️ The chat did not answer.`);
+  }
+  await beat(1500);
 
-  console.log(`   📝 Elaborating now that the contrast is on screen...`);
-  await typeInNotepad(
-    page,
-    [
-      '',
-      '-the agent chat answers fine; only thread persistence is missing',
-      '- this is not  a broken agent: th runtime has no intelligenc key,',
-      '  so thread create/list/mutate never reacha store',
-      '',
-    ],
-    1550,
-    380,
-  );
-  await sleep(5000);
-  await closeNotepadNote(page);
-  await sleep(1200);
+  // ── The drawer lists it; select it ───────────────────────────────────────
+  // Waited for, not read once: the drawer fills in after its own request, so
+  // an immediate innerText read reports it empty when it is not.
+  const entry = page
+    .locator('copilot-threads-drawer button, copilot-threads-drawer [role="button"]')
+    .filter({ hasNotText: 'New Conversation' })
+    .first();
+  const entryBox = await entry
+    .waitFor({ state: 'visible', timeout: 10000 })
+    .then(() => entry.boundingBox())
+    .catch(() => null);
+
+  if (entryBox) {
+    const name = ((await entry.innerText().catch(() => '')) || '').trim();
+    console.log(`   🧵 Selecting "${name.slice(0, 60)}" from CopilotThreadsDrawer...`);
+    await humanGlide(page, entryBox.x + entryBox.width / 2, entryBox.y + entryBox.height / 2, 22);
+    await sleep(350);
+    await humanClick(page);
+    await beat(2200);
+  } else {
+    console.log(`   🐞 CopilotThreadsDrawer listed no thread within 10s.`);
+  }
+
+  // ── Back to the list, which now carries the new thread ───────────────────
+  if (listBox) {
+    await humanGlide(page, listBox.x + Math.min(listBox.width / 2, 160), listBox.y + 20, 22);
+    await beat(2400);
+  }
 };

@@ -49,7 +49,7 @@ export const appConfig: ApplicationConfig = {
     provideClientHydration(),
     // quickstart : connect to copilot runtime start
     provideCopilotKit({
-      runtimeUrl: 'http://localhost:8201/api/copilotkit',
+      runtimeUrl: 'http://localhost:8220/api/copilotkit',
       // a2ui : recover incomplete streams start
       a2ui: {
         recovery: { showAfterMs: 2_000, showAfterAttempts: 2 },

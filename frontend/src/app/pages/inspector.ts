@@ -151,7 +151,7 @@ import { Callout, DocSample, Panel, SourceCode, TryIt } from '../components/ui';
 })
 export default class InspectorPage {
   protected readonly enableInspectorSample = `provideCopilotKit({
-  runtimeUrl: "http://localhost:8201/api/copilotkit",
+  runtimeUrl: "http://localhost:8220/api/copilotkit",
   enableInspector: false, // hide it during development
 });`;
 

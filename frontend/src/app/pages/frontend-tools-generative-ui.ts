@@ -189,15 +189,13 @@ Show
         </p>
       </ui-panel>
 
-      <ui-callout tone="warn" title="The renderer name must equal the tool name">
-        <code>registerRenderToolCall({{ '{' }} name {{ '}' }})</code> matches the
-        agent's tool by exact string. The guide's snippet is written against
-        <code>getWeather(city)</code>, while the Agent Framework agent in
-        <code>backend/main.py</code> declares
-        <code>get_weather(location)</code> — rename one side to match. A
-        <code>get_weather</code>/<code>getWeather</code> mismatch fails silently:
-        the tool still runs and the agent still answers, you just get plain text
-        where the card should be.
+      <ui-callout tone="warn" title="The renderer's args must match the tool's parameters">
+        The tool names match: both sides use <code>getWeather</code>, so the
+        card renders. The arguments do not. The guide's renderer reads
+        <code>call.args.city</code>, while the Agent Framework agent in
+        <code>backend/main.py</code> declares <code>getWeather(location)</code>.
+        <code>city</code> is <code>undefined</code>, so the card's heading
+        renders empty, with no error.
       </ui-callout>
 
       <ui-panel heading="Open Generative UI — sandboxed host functions">

@@ -28,8 +28,16 @@ A page handler in `actions/` reports through its fourth argument, `ctx`:
 `ctx.warn(...)` for something the doc promises that was not observed (the run
 shows `PASS*` with the note), `ctx.fail(...)` when the feature did not work
 (the clip is still saved, the page reports `FAIL`). A `console.warn` reaches
-nobody — the summary, `videos/RECORD_RESULTS.json` and the CI report only see
-what goes through `ctx`.
+nobody — the summary and `videos/RECORD_RESULTS.json` only see what goes
+through `ctx`.
 
 When a change here is worth keeping across repos, it belongs in `core/` and
 should be ported to the other copies — say so explicitly so it can be.
+
+## `core/` change ported from DeepAgentspy-angular (2026-09-25)
+
+- `console-capture.ts` / `engine.ts`: `breakingErrors`. An uncaught exception,
+  Angular's `ERROR`/`NG0xxx`, or a failed request to a localhost harness server
+  now FAILs the take instead of adding one warning line.
+- This recorder has no `[ISSUE]` outcome. DeepAgentspy-angular's
+  `ctx.reproduced` / `[ISSUE]`-only-when-observed is there if you need it.

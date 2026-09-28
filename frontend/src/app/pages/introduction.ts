@@ -36,16 +36,16 @@ import { DOC_SYNC_DATE, NAV } from '../lib/nav-config';
           class="overflow-x-auto rounded-lg bg-slate-900 p-4 text-xs leading-relaxed text-slate-100"
         ><code>Browser (Angular 22, zoneless)
   &#124;  &#64;copilotkit/angular — provideCopilotKit, copilot-chat, signal APIs
-  &#124;  POST http://localhost:8201/api/copilotkit
+  &#124;  POST http://localhost:8220/api/copilotkit
   v
-Copilot Runtime  ·  localhost:8201        &#8592; Node, frontend/server.ts
+Copilot Runtime  ·  localhost:8220        &#8592; Node, frontend/server.ts
   &#124;  agents: &#123; default, support &#125; &#8594; new HttpAgent(&#123; url &#125;)
-  &#124;  POST http://localhost:8200/        &#8592; AG-UI over SSE
+  &#124;  POST http://localhost:8221/        &#8592; AG-UI over SSE
   v
-Microsoft Agent Framework  ·  localhost:8200   &#8592; Python / FastAPI
+Microsoft Agent Framework  ·  localhost:8221   &#8592; Python / FastAPI
   &#124;  add_agent_framework_fastapi_endpoint(app, agent, path="/")
   v
-OpenAI  (gpt-4o-mini)</code></pre>
+OpenAI  (gpt-5.4-mini)</code></pre>
 
         <p class="mt-3 text-sm text-slate-700">
           Three processes, not two. Unlike the React quickstart — where the
