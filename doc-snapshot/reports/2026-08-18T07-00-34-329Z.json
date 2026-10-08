@@ -1,0 +1,367 @@
+{
+  "ranAt": "2026-08-18T07:00:34.329Z",
+  "baseline": false,
+  "docsRoot": "https://docs.copilotkit.ai/angular/ms-agent-python",
+  "pages": [
+    {
+      "docPath": "/angular/ms-agent-python",
+      "url": "https://docs.copilotkit.ai/angular/ms-agent-python.md",
+      "routes": [
+        "/",
+        "/doc-sync"
+      ],
+      "title": "Introduction",
+      "sha256": "fbee73162510e5cadb5a46d2b5dda1b58fa5cde9d4751b61abbd2150202f446d",
+      "bytes": 6743,
+      "lines": 172,
+      "previousSha256": "cee6b59d8cac33c650ab436a295063612ce4e823c215b1f0ab1b3ff5636f915c",
+      "outcome": "changed",
+      "severity": "high",
+      "hunks": [
+        {
+          "startLine": 35,
+          "lines": [
+            {
+              "op": "context",
+              "text": "",
+              "kind": "prose"
+            },
+            {
+              "op": "context",
+              "text": "        ```bash",
+              "kind": "fence-open"
+            },
+            {
+              "op": "context",
+              "text": "        npx @angular/cli@22 new my-copilot-app",
+              "kind": "code"
+            },
+            {
+              "op": "remove",
+              "text": "       ",
+              "kind": "code"
+            },
+            {
+              "op": "add",
+              "text": "        cd my-copilot-app",
+              "kind": "code"
+            },
+            {
+              "op": "context",
+              "text": "        ```",
+              "kind": "fence-close"
+            },
+            {
+              "op": "context",
+              "text": "    </Step>",
+              "kind": "prose"
+            },
+            {
+              "op": "context",
+              "text": "    <Step>",
+              "kind": "prose"
+            }
+          ],
+          "severity": "high",
+          "heading": "Create your Angular app",
+          "language": "bash"
+        }
+      ],
+      "snapshotEdited": true
+    },
+    {
+      "docPath": "/angular/ms-agent-python/guides/human-in-the-loop",
+      "url": "https://docs.copilotkit.ai/angular/ms-agent-python/guides/human-in-the-loop.md",
+      "routes": [
+        "/human-in-the-loop"
+      ],
+      "title": "Human-in-the-loop and interrupts",
+      "sha256": "3befa9b53fe2a046c8baf56bfe933f4023e642b0652d0b9974b62060fc5bd8ef",
+      "bytes": 7181,
+      "lines": 227,
+      "previousSha256": "019b7b6ebc44f490e9ead54830797b87846771493174139ccb8fce342b5e51ff",
+      "outcome": "changed",
+      "severity": "high",
+      "hunks": [
+        {
+          "startLine": 10,
+          "lines": [
+            {
+              "op": "context",
+              "text": "| Human-in-the-loop tool | The agent calls a registered browser tool | `registerHumanInTheLoop` |",
+              "kind": "prose"
+            },
+            {
+              "op": "context",
+              "text": "| Interrupt | The backend agent emits an AG-UI interrupt | `injectInterrupt` |",
+              "kind": "prose"
+            },
+            {
+              "op": "context",
+              "text": "",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "Use a tool when the model should decide whether to ask. Use an interrupt when",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "the backend workflow must stop at a fixed checkpoint.",
+              "kind": "prose"
+            },
+            {
+              "op": "context",
+              "text": "",
+              "kind": "prose"
+            },
+            {
+              "op": "context",
+              "text": "## Register a decision tool",
+              "kind": "heading"
+            },
+            {
+              "op": "context",
+              "text": "",
+              "kind": "prose"
+            }
+          ],
+          "severity": "low",
+          "heading": "Human-in-the-loop and interrupts"
+        },
+        {
+          "startLine": 25,
+          "lines": [
+            {
+              "op": "context",
+              "text": "  type HumanInTheLoopToolRenderer,",
+              "kind": "code"
+            },
+            {
+              "op": "context",
+              "text": "} from \"@copilotkit/angular\";",
+              "kind": "code"
+            },
+            {
+              "op": "context",
+              "text": "",
+              "kind": "code"
+            },
+            {
+              "op": "add",
+              "text": "type ApprovalArgs = {",
+              "kind": "code"
+            },
+            {
+              "op": "add",
+              "text": "  action: string;",
+              "kind": "code"
+            },
+            {
+              "op": "add",
+              "text": "  reason: string;",
+              "kind": "code"
+            },
+            {
+              "op": "add",
+              "text": "};",
+              "kind": "code"
+            },
+            {
+              "op": "context",
+              "text": "",
+              "kind": "code"
+            },
+            {
+              "op": "context",
+              "text": "@Component({",
+              "kind": "code"
+            },
+            {
+              "op": "context",
+              "text": "  selector: \"app-approval-card\",",
+              "kind": "code"
+            }
+          ],
+          "severity": "high",
+          "heading": "Register a decision tool",
+          "language": "ts"
+        }
+      ],
+      "snapshotEdited": true
+    },
+    {
+      "docPath": "/angular/ms-agent-python/guides/voice-multimodal",
+      "url": "https://docs.copilotkit.ai/angular/ms-agent-python/guides/voice-multimodal.md",
+      "routes": [
+        "/voice-multimodal"
+      ],
+      "title": "Voice and multimodal input",
+      "sha256": "2c180ef09dbeb6cb7be6eb3f7959537e0cef845d96ac549243fb50c7dfc890fc",
+      "bytes": 3809,
+      "lines": 111,
+      "previousSha256": "6661d0b08e8e458072cd2b6478bb47c123387efc9effba5569d77801e5f8b461",
+      "outcome": "changed",
+      "severity": "low",
+      "hunks": [
+        {
+          "startLine": 24,
+          "lines": [
+            {
+              "op": "context",
+              "text": "access. Your Runtime must also have transcription configured; a visible",
+              "kind": "prose"
+            },
+            {
+              "op": "context",
+              "text": "microphone does not make an unavailable transcription service succeed.",
+              "kind": "prose"
+            },
+            {
+              "op": "context",
+              "text": "",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "Voice requests can call the same backend tools as typed requests. Register",
+              "kind": "prose"
+            },
+            {
+              "op": "add",
+              "text": "renderers only for the exact tool names your backend exposes:",
+              "kind": "prose"
+            },
+            {
+              "op": "context",
+              "text": "",
+              "kind": "prose"
+            },
+            {
+              "op": "context",
+              "text": "```typescript",
+              "kind": "fence-open"
+            },
+            {
+              "op": "context",
+              "text": "// features/media/media-feature.component.ts",
+              "kind": "code"
+            }
+          ],
+          "severity": "low",
+          "heading": "Accept voice input"
+        }
+      ],
+      "snapshotEdited": true
+    },
+    {
+      "docPath": "/angular/ms-agent-python/guides/a2ui",
+      "url": "https://docs.copilotkit.ai/angular/ms-agent-python/guides/a2ui.md",
+      "routes": [
+        "/a2ui"
+      ],
+      "title": "A2UI schemas, styling, and recovery",
+      "sha256": "e859e07672f1db7e9af743653c79e8dd0b42cc6fe56ef46024e1700af4537aef",
+      "bytes": 5869,
+      "lines": 195,
+      "previousSha256": "e859e07672f1db7e9af743653c79e8dd0b42cc6fe56ef46024e1700af4537aef",
+      "outcome": "unchanged",
+      "severity": "none",
+      "hunks": []
+    },
+    {
+      "docPath": "/angular/ms-agent-python/guides/chat-ui",
+      "url": "https://docs.copilotkit.ai/angular/ms-agent-python/guides/chat-ui.md",
+      "routes": [
+        "/chat-ui"
+      ],
+      "title": "Chat UI and customization",
+      "sha256": "807b77c682052e237a002a95e7ccc107bc5dd3cf52c441d7d31c363e20d84792",
+      "bytes": 5147,
+      "lines": 178,
+      "previousSha256": "807b77c682052e237a002a95e7ccc107bc5dd3cf52c441d7d31c363e20d84792",
+      "outcome": "unchanged",
+      "severity": "none",
+      "hunks": []
+    },
+    {
+      "docPath": "/angular/ms-agent-python/guides/frontend-tools-generative-ui",
+      "url": "https://docs.copilotkit.ai/angular/ms-agent-python/guides/frontend-tools-generative-ui.md",
+      "routes": [
+        "/frontend-tools-generative-ui"
+      ],
+      "title": "Frontend tools and generative UI",
+      "sha256": "48aec440ade17b1c9b61c0bcdb606a736ddc9b3a09ee8e90a6b3e4f1028316ff",
+      "bytes": 5737,
+      "lines": 178,
+      "previousSha256": "48aec440ade17b1c9b61c0bcdb606a736ddc9b3a09ee8e90a6b3e4f1028316ff",
+      "outcome": "unchanged",
+      "severity": "none",
+      "hunks": []
+    },
+    {
+      "docPath": "/angular/ms-agent-python/guides/shared-state",
+      "url": "https://docs.copilotkit.ai/angular/ms-agent-python/guides/shared-state.md",
+      "routes": [
+        "/shared-state"
+      ],
+      "title": "Shared state and agent context",
+      "sha256": "975f0dbaefe676784971b1526bd625b8035ebdb1f3ed52501b2fa1d7e40b4181",
+      "bytes": 4731,
+      "lines": 151,
+      "previousSha256": "975f0dbaefe676784971b1526bd625b8035ebdb1f3ed52501b2fa1d7e40b4181",
+      "outcome": "unchanged",
+      "severity": "none",
+      "hunks": []
+    },
+    {
+      "docPath": "/angular/ms-agent-python/guides/threads-memory-attachments-headless",
+      "url": "https://docs.copilotkit.ai/angular/ms-agent-python/guides/threads-memory-attachments-headless.md",
+      "routes": [
+        "/threads",
+        "/memory",
+        "/attachments",
+        "/headless"
+      ],
+      "title": "Threads",
+      "sha256": "07635e13148c8e5361ba544a808fc3c1d2eef13ad063216e2152e6adc82d6076",
+      "bytes": 8950,
+      "lines": 302,
+      "previousSha256": "07635e13148c8e5361ba544a808fc3c1d2eef13ad063216e2152e6adc82d6076",
+      "outcome": "unchanged",
+      "severity": "none",
+      "hunks": []
+    },
+    {
+      "docPath": "/angular/ms-agent-python/quickstart",
+      "url": "https://docs.copilotkit.ai/angular/ms-agent-python/quickstart.md",
+      "routes": [
+        "/quickstart"
+      ],
+      "title": "Quickstart",
+      "sha256": "fbee73162510e5cadb5a46d2b5dda1b58fa5cde9d4751b61abbd2150202f446d",
+      "bytes": 6743,
+      "lines": 172,
+      "previousSha256": "fbee73162510e5cadb5a46d2b5dda1b58fa5cde9d4751b61abbd2150202f446d",
+      "outcome": "unchanged",
+      "severity": "none",
+      "hunks": []
+    }
+  ],
+  "sitemap": {
+    "newUnmapped": [],
+    "confirmedRemoved": [],
+    "urlsUnderRoot": 3
+  },
+  "counts": {
+    "unchanged": 6,
+    "changed": 3,
+    "new": 0,
+    "missing": 0,
+    "unstable": 0,
+    "error": 0
+  },
+  "highest": "high",
+  "durationMs": 1341
+}

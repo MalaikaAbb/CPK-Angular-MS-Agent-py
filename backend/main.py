@@ -12,6 +12,9 @@ from typing import Annotated
 from pydantic import BaseModel, Field
 from fastapi.middleware.cors import CORSMiddleware
 
+from research_agent import create_research_agent
+from subagents_agent import create_subagents_agent
+
 load_dotenv()
 
 class SearchItem(BaseModel):
@@ -93,6 +96,12 @@ def create_agent(chat_client: SupportsChatGetResponse) -> AgentFrameworkAgent:
 chat_client = _build_chat_client()
 
 agent = create_agent(chat_client)
+# subagents : supervisor agent start
+subagents_agent = create_subagents_agent(chat_client)
+# subagents : supervisor agent end
+# ag-ui : research agent start
+research_agent = create_research_agent(chat_client)
+# ag-ui : research agent end
 
 app = FastAPI(title="CopilotKit + Microsoft Agent Framework (Python)")
 app.add_middleware(
@@ -106,6 +115,12 @@ app.add_middleware(
 # quickstart : expose agent framework endpoint start
 add_agent_framework_fastapi_endpoint(app=app, agent=agent, path="/")
 # quickstart : expose agent framework endpoint end
+# subagents : expose supervisor endpoint start
+add_agent_framework_fastapi_endpoint(app=app, agent=subagents_agent, path="/subagents")
+# subagents : expose supervisor endpoint end
+# ag-ui : expose research agent endpoint start
+add_agent_framework_fastapi_endpoint(app=app, agent=research_agent, path="/research")
+# ag-ui : expose research agent endpoint end
 
 if __name__ == "__main__":
     uvicorn.run("main:app", host="0.0.0.0", port=8221, reload=True)

@@ -1,0 +1,152 @@
+{
+  "ranAt": "2026-08-17T18:58:05.730Z",
+  "baseline": true,
+  "docsRoot": "https://docs.copilotkit.ai/angular/ms-agent-python",
+  "pages": [
+    {
+      "docPath": "/angular/ms-agent-python",
+      "url": "https://docs.copilotkit.ai/angular/ms-agent-python.md",
+      "routes": [
+        "/",
+        "/doc-sync"
+      ],
+      "title": "Introduction",
+      "sha256": "fbee73162510e5cadb5a46d2b5dda1b58fa5cde9d4751b61abbd2150202f446d",
+      "bytes": 6743,
+      "lines": 172,
+      "outcome": "new",
+      "severity": "none",
+      "hunks": []
+    },
+    {
+      "docPath": "/angular/ms-agent-python/guides/a2ui",
+      "url": "https://docs.copilotkit.ai/angular/ms-agent-python/guides/a2ui.md",
+      "routes": [
+        "/a2ui"
+      ],
+      "title": "A2UI schemas, styling, and recovery",
+      "sha256": "e859e07672f1db7e9af743653c79e8dd0b42cc6fe56ef46024e1700af4537aef",
+      "bytes": 5869,
+      "lines": 195,
+      "outcome": "new",
+      "severity": "none",
+      "hunks": []
+    },
+    {
+      "docPath": "/angular/ms-agent-python/guides/chat-ui",
+      "url": "https://docs.copilotkit.ai/angular/ms-agent-python/guides/chat-ui.md",
+      "routes": [
+        "/chat-ui"
+      ],
+      "title": "Chat UI and customization",
+      "sha256": "807b77c682052e237a002a95e7ccc107bc5dd3cf52c441d7d31c363e20d84792",
+      "bytes": 5147,
+      "lines": 178,
+      "outcome": "new",
+      "severity": "none",
+      "hunks": []
+    },
+    {
+      "docPath": "/angular/ms-agent-python/guides/frontend-tools-generative-ui",
+      "url": "https://docs.copilotkit.ai/angular/ms-agent-python/guides/frontend-tools-generative-ui.md",
+      "routes": [
+        "/frontend-tools-generative-ui"
+      ],
+      "title": "Frontend tools and generative UI",
+      "sha256": "48aec440ade17b1c9b61c0bcdb606a736ddc9b3a09ee8e90a6b3e4f1028316ff",
+      "bytes": 5737,
+      "lines": 178,
+      "outcome": "new",
+      "severity": "none",
+      "hunks": []
+    },
+    {
+      "docPath": "/angular/ms-agent-python/guides/human-in-the-loop",
+      "url": "https://docs.copilotkit.ai/angular/ms-agent-python/guides/human-in-the-loop.md",
+      "routes": [
+        "/human-in-the-loop"
+      ],
+      "title": "Human-in-the-loop and interrupts",
+      "sha256": "3befa9b53fe2a046c8baf56bfe933f4023e642b0652d0b9974b62060fc5bd8ef",
+      "bytes": 7181,
+      "lines": 227,
+      "outcome": "new",
+      "severity": "none",
+      "hunks": []
+    },
+    {
+      "docPath": "/angular/ms-agent-python/guides/shared-state",
+      "url": "https://docs.copilotkit.ai/angular/ms-agent-python/guides/shared-state.md",
+      "routes": [
+        "/shared-state"
+      ],
+      "title": "Shared state and agent context",
+      "sha256": "975f0dbaefe676784971b1526bd625b8035ebdb1f3ed52501b2fa1d7e40b4181",
+      "bytes": 4731,
+      "lines": 151,
+      "outcome": "new",
+      "severity": "none",
+      "hunks": []
+    },
+    {
+      "docPath": "/angular/ms-agent-python/guides/threads-memory-attachments-headless",
+      "url": "https://docs.copilotkit.ai/angular/ms-agent-python/guides/threads-memory-attachments-headless.md",
+      "routes": [
+        "/threads",
+        "/memory",
+        "/attachments",
+        "/headless"
+      ],
+      "title": "Threads",
+      "sha256": "07635e13148c8e5361ba544a808fc3c1d2eef13ad063216e2152e6adc82d6076",
+      "bytes": 8950,
+      "lines": 302,
+      "outcome": "new",
+      "severity": "none",
+      "hunks": []
+    },
+    {
+      "docPath": "/angular/ms-agent-python/guides/voice-multimodal",
+      "url": "https://docs.copilotkit.ai/angular/ms-agent-python/guides/voice-multimodal.md",
+      "routes": [
+        "/voice-multimodal"
+      ],
+      "title": "Voice and multimodal input",
+      "sha256": "2c180ef09dbeb6cb7be6eb3f7959537e0cef845d96ac549243fb50c7dfc890fc",
+      "bytes": 3809,
+      "lines": 111,
+      "outcome": "new",
+      "severity": "none",
+      "hunks": []
+    },
+    {
+      "docPath": "/angular/ms-agent-python/quickstart",
+      "url": "https://docs.copilotkit.ai/angular/ms-agent-python/quickstart.md",
+      "routes": [
+        "/quickstart"
+      ],
+      "title": "Quickstart",
+      "sha256": "fbee73162510e5cadb5a46d2b5dda1b58fa5cde9d4751b61abbd2150202f446d",
+      "bytes": 6743,
+      "lines": 172,
+      "outcome": "new",
+      "severity": "none",
+      "hunks": []
+    }
+  ],
+  "sitemap": {
+    "newUnmapped": [],
+    "confirmedRemoved": [],
+    "urlsUnderRoot": 3
+  },
+  "counts": {
+    "unchanged": 0,
+    "changed": 0,
+    "new": 9,
+    "missing": 0,
+    "unstable": 0,
+    "error": 0
+  },
+  "highest": "none",
+  "durationMs": 1135
+}

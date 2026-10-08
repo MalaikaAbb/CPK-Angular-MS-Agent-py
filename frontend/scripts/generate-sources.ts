@@ -19,6 +19,8 @@ const TARGETS = [
   'src/app/app.config.ts',
   'src/app/features',
   '../backend/main.py',
+  '../backend/subagents_agent.py',
+  '../backend/research_agent.py',
   '../backend/pyproject.toml',
   '../backend/.env.example',
 ];

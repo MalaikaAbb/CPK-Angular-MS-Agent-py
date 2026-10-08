@@ -4,13 +4,16 @@
  * Shape comes from the Angular quickstart's Node runtime server, with the
  * agent swapped for the Microsoft Agent Framework backend in `../backend`.
  *
- * That backend exposes a plain AG-UI endpoint —
- * `add_agent_framework_fastapi_endpoint(app=app, agent=agent, path="/")` in
- * backend/main.py mounts a single `POST /` that streams AG-UI events over SSE.
+ * That backend exposes plain AG-UI endpoints —
+ * `add_agent_framework_fastapi_endpoint(...)` in backend/main.py mounts
+ * `POST /` (the default agent), `POST /subagents` (the Sub-Agents supervisor)
+ * and `POST /research` (the AG-UI guide's `research-agent`), each streaming
+ * AG-UI events over SSE.
  *
- * `default` and `support` resolve to the same Agent Framework process.
+ * `default` and `support` resolve to the same Agent Framework agent.
  * `support` exists so the doc snippets that use `agentId="support"` (Chat UI,
- * Threads) run verbatim.
+ * Threads) run verbatim. The agents-map key is the only name the frontend can
+ * ask for (Copilot Runtime guide, "Which name identifies an agent").
  *
  * `a2ui: {}` enables A2UIMiddleware for every registered agent, per
  * https://docs.copilotkit.ai/angular/ms-agent-python/backend/copilot-runtime
@@ -49,7 +52,16 @@ const runtime = new CopilotRuntime({
     default: new HttpAgent({ url: agentUrl }),
     // chat ui : support agent
     support: new HttpAgent({ url: agentUrl }),
+    // subagents : supervisor agent (backend/subagents_agent.py)
+    subagents: new HttpAgent({ url: `${agentUrl}subagents` }),
+    // ag-ui : research agent (backend/research_agent.py, self-defined)
+    "research-agent": new HttpAgent({ url: `${agentUrl}research` }),
   },
+  // auth : forward identity deliberately start
+  forwardHeaders: {
+    allow: ["authorization", "x-tenant-id"],
+  },
+  // auth : forward identity deliberately end
   // a2ui : enable a2ui middleware start
   a2ui: {},
   // a2ui : enable a2ui middleware end
@@ -64,16 +76,95 @@ const runtime = new CopilotRuntime({
 
 const port = Number(process.env["PORT"] ?? 8220);
 
+/**
+ * Credentialed CORS, from the Authentication guide's "Send cookies to a
+ * cross-origin runtime": the app sets `credentials: "include"`, so the runtime
+ * must answer with `credentials: true` and the app's exact origins — never
+ * `*`. These are the two origins this repo serves the app from: `ng serve`
+ * (package.json `start`) and the built SSR server (src/server.ts).
+ *
+ * `allowHeaders` must be listed too. The default is `["*"]`, and browsers
+ * treat `*` literally on credentialed requests — so every JSON POST and every
+ * `Authorization` header failed its preflight until this list was added. It
+ * holds what the client sends (`content-type`, `authorization`), the license
+ * header `provideCopilotKit` adds when a key is set, the `x-user-*` headers
+ * `identifyUser` reads, and the `x-tenant-id` the forwardHeaders allowlist
+ * names.
+ */
+const cors = {
+  origin: ["http://localhost:4220", "http://localhost:4222"],
+  credentials: true,
+  allowHeaders: [
+    "content-type",
+    "authorization",
+    "x-copilotcloud-public-api-key",
+    "x-user-id",
+    "x-user-name",
+    "x-tenant-id",
+  ],
+};
+
+// auth : authenticated runtime start
+/**
+ * A second runtime for the /auth demo, gated by the Authentication guide's
+ * `onRequest` hook. It is separate — as in the CopilotKit showcase's
+ * `/api/copilotkit-auth` route — because gating the main runtime would answer
+ * 401 to every other route in this harness.
+ *
+ * The guide's `createCopilotExpressHandler` is swapped for the
+ * `createCopilotNodeListener` this server already uses; both take the same
+ * `hooks` option. `verifySession` is not defined by the guide: it is the
+ * showcase's static demo-token check. Never use a hard-coded shared secret
+ * for real auth.
+ */
+const DEMO_TOKEN = "demo-token-123";
+
+async function verifySession(token: string) {
+  return token === DEMO_TOKEN ? { token } : null;
+}
+
+const authRuntime = new CopilotRuntime({
+  agents: {
+    default: new HttpAgent({ url: agentUrl }),
+  },
+});
+
+const authListener = createCopilotNodeListener({
+  runtime: authRuntime,
+  basePath: "/api/copilotkit-auth",
+  cors,
+  hooks: {
+    onRequest: async ({ request }) => {
+      const token = request.headers
+        .get("authorization")
+        ?.replace(/^Bearer\s+/i, "");
+      const session = token ? await verifySession(token) : null;
+
+      if (!session) {
+        throw new Response("Unauthorized", { status: 401 });
+      }
+    },
+  },
+});
+// auth : authenticated runtime end
+
 // quickstart : create copilot node listener start
-createServer(
-  createCopilotNodeListener({
-    runtime,
-    basePath: "/api/copilotkit",
-    cors: true,
-  }),
+const listener = createCopilotNodeListener({
+  runtime,
+  basePath: "/api/copilotkit",
+  cors,
+});
+
+createServer((req, res) =>
+  req.url?.startsWith("/api/copilotkit-auth")
+    ? authListener(req, res)
+    : listener(req, res),
 ).listen(port, () => {
   console.log(
     `Copilot Runtime listening at http://localhost:${port}/api/copilotkit`,
+  );
+  console.log(
+    `Authenticated runtime listening at http://localhost:${port}/api/copilotkit-auth`,
   );
   console.log(`Microsoft Agent Framework agent: ${agentUrl}`);
 });

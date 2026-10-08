@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "docsRoot": "https://docs.copilotkit.ai/angular/ms-agent-python",
-  "syncedAt": "2026-09-23T07:50:27.271Z",
+  "syncedAt": "2026-10-08T14:36:52.011Z",
   "pages": {
     "/angular/ms-agent-python": {
       "file": "angular__ms-agent-python.md",
@@ -9,23 +9,24 @@
       "bytes": 7472,
       "lines": 191,
       "routes": [
-        "/"
+        "/",
+        "/doc-sync"
       ],
       "status": "ok",
       "age": 0,
-      "date": "Wed, 23 Sep 2026 07:50:27 GMT"
+      "date": "Thu, 08 Oct 2026 14:36:52 GMT"
     },
     "/angular/ms-agent-python/guides/a2ui": {
       "file": "angular__ms-agent-python__guides__a2ui.md",
-      "sha256": "b0b8759247190d311fca9fcea6923eedb3a9603c980325f90cbca447b6cb8778",
-      "bytes": 5849,
-      "lines": 195,
+      "sha256": "007351ff37ab773ed813a6770d6a77841e7f733f96c1fa5759b88e255fa01bf4",
+      "bytes": 6854,
+      "lines": 219,
       "routes": [
         "/a2ui"
       ],
       "status": "ok",
       "age": 0,
-      "date": "Sun, 30 Aug 2026 13:43:33 GMT"
+      "date": "Thu, 08 Oct 2026 14:36:52 GMT"
     },
     "/angular/ms-agent-python/guides/chat-ui": {
       "file": "angular__ms-agent-python__guides__chat-ui.md",
@@ -37,19 +38,19 @@
       ],
       "status": "ok",
       "age": 0,
-      "date": "Sun, 30 Aug 2026 13:43:33 GMT"
+      "date": "Thu, 08 Oct 2026 14:36:52 GMT"
     },
     "/angular/ms-agent-python/guides/frontend-tools-generative-ui": {
       "file": "angular__ms-agent-python__guides__frontend-tools-generative-ui.md",
-      "sha256": "52daea487323ade1cee1587f6c62a1b7fcd1aeac24451c9c1f3b5a391eb48785",
-      "bytes": 7893,
+      "sha256": "924711f36d883600cd72ffecae3256ce0a9d02eb9da53bb58c3b6e1f44949520",
+      "bytes": 7897,
       "lines": 236,
       "routes": [
         "/frontend-tools-generative-ui"
       ],
       "status": "ok",
       "age": 0,
-      "date": "Fri, 04 Sep 2026 07:57:52 GMT"
+      "date": "Thu, 08 Oct 2026 14:36:52 GMT"
     },
     "/angular/ms-agent-python/guides/human-in-the-loop": {
       "file": "angular__ms-agent-python__guides__human-in-the-loop.md",
@@ -61,7 +62,7 @@
       ],
       "status": "ok",
       "age": 0,
-      "date": "Sun, 30 Aug 2026 13:43:33 GMT"
+      "date": "Thu, 08 Oct 2026 14:36:52 GMT"
     },
     "/angular/ms-agent-python/guides/shared-state": {
       "file": "angular__ms-agent-python__guides__shared-state.md",
@@ -73,7 +74,7 @@
       ],
       "status": "ok",
       "age": 0,
-      "date": "Sun, 30 Aug 2026 13:43:33 GMT"
+      "date": "Thu, 08 Oct 2026 14:36:52 GMT"
     },
     "/angular/ms-agent-python/guides/threads-memory-attachments-headless": {
       "file": "angular__ms-agent-python__guides__threads-memory-attachments-headless.md",
@@ -88,19 +89,19 @@
       ],
       "status": "ok",
       "age": 0,
-      "date": "Sun, 30 Aug 2026 13:43:33 GMT"
+      "date": "Thu, 08 Oct 2026 14:36:53 GMT"
     },
     "/angular/ms-agent-python/guides/voice-multimodal": {
       "file": "angular__ms-agent-python__guides__voice-multimodal.md",
-      "sha256": "2c180ef09dbeb6cb7be6eb3f7959537e0cef845d96ac549243fb50c7dfc890fc",
-      "bytes": 3809,
-      "lines": 111,
+      "sha256": "5093ec7ac11dc4a2c70963218edfccb9df19ab05a1298e4721e469ea26b86aa4",
+      "bytes": 4504,
+      "lines": 128,
       "routes": [
         "/voice-multimodal"
       ],
       "status": "ok",
       "age": 0,
-      "date": "Sun, 30 Aug 2026 13:43:33 GMT"
+      "date": "Thu, 08 Oct 2026 14:36:52 GMT"
     },
     "/angular/ms-agent-python/inspector": {
       "file": "angular__ms-agent-python__inspector.md",
@@ -112,7 +113,7 @@
       ],
       "status": "ok",
       "age": 0,
-      "date": "Mon, 01 Sep 2026 00:00:00 GMT"
+      "date": "Thu, 08 Oct 2026 14:36:52 GMT"
     },
     "/angular/ms-agent-python/quickstart": {
       "file": "angular__ms-agent-python__quickstart.md",
@@ -124,68 +125,62 @@
       ],
       "status": "ok",
       "age": 0,
-      "date": "Wed, 23 Sep 2026 07:50:27 GMT"
+      "date": "Thu, 08 Oct 2026 14:36:52 GMT"
     }
   },
   "sitemap": {
-    "urlsUnderRoot": 0,
+    "fetchedAt": "2026-10-08T14:36:52.011Z",
+    "urlsUnderRoot": 3,
     "knownUnmapped": [
-      "https://docs.copilotkit.ai/angular/ms-agent-python/copilot-runtime",
-      "https://docs.copilotkit.ai/angular/ms-agent-python/ag-ui",
-      "https://docs.copilotkit.ai/angular/ms-agent-python/using-these-docs",
-      "https://docs.copilotkit.ai/angular/ms-agent-python/intelligence/overview",
-      "https://docs.copilotkit.ai/angular/ms-agent-python/intelligence/threads-explained",
-      "https://docs.copilotkit.ai/angular/ms-agent-python/webmcp",
-      "https://docs.copilotkit.ai/angular/ms-agent-python/server-tools",
-      "https://docs.copilotkit.ai/angular/ms-agent-python/mcp-servers",
-      "https://docs.copilotkit.ai/angular/ms-agent-python/model-selection",
       "https://docs.copilotkit.ai/angular/ms-agent-python/advanced-configuration",
-      "https://docs.copilotkit.ai/angular/ms-agent-python/multi-agent/subagents",
-      "https://docs.copilotkit.ai/angular/ms-agent-python/intelligence/quickstart",
-      "https://docs.copilotkit.ai/angular/ms-agent-python/intelligence/intelligence-platform",
-      "https://docs.copilotkit.ai/angular/ms-agent-python/intelligence/plans",
-      "https://docs.copilotkit.ai/angular/ms-agent-python/learning",
-      "https://docs.copilotkit.ai/angular/ms-agent-python/intelligence/learned-skills",
-      "https://docs.copilotkit.ai/angular/ms-agent-python/intelligence/memories",
-      "https://docs.copilotkit.ai/angular/ms-agent-python/intelligence/analytics",
-      "https://docs.copilotkit.ai/angular/ms-agent-python/intelligence/channels",
-      "https://docs.copilotkit.ai/angular/ms-agent-python/intelligence/managed-intelligence-platform",
-      "https://docs.copilotkit.ai/angular/ms-agent-python/intelligence/self-hosting",
-      "https://docs.copilotkit.ai/angular/ms-agent-python/intelligence/self-hosting-ecs",
-      "https://docs.copilotkit.ai/angular/ms-agent-python/backend/copilot-runtime",
-      "https://docs.copilotkit.ai/angular/ms-agent-python/backend/runtime-endpoints",
-      "https://docs.copilotkit.ai/angular/ms-agent-python/backend/custom-agent",
-      "https://docs.copilotkit.ai/angular/ms-agent-python/backend/agent-runner",
-      "https://docs.copilotkit.ai/angular/ms-agent-python/backend/message-history",
-      "https://docs.copilotkit.ai/angular/ms-agent-python/backend/self-managed-agents",
-      "https://docs.copilotkit.ai/angular/ms-agent-python/backend/ag-ui",
-      "https://docs.copilotkit.ai/angular/ms-agent-python/runtime-server-adapter",
+      "https://docs.copilotkit.ai/angular/ms-agent-python/ag-ui",
+      "https://docs.copilotkit.ai/angular/ms-agent-python/agentic-protocols/a2a",
+      "https://docs.copilotkit.ai/angular/ms-agent-python/agentic-protocols/ag-ui",
+      "https://docs.copilotkit.ai/angular/ms-agent-python/agentic-protocols/ag-ui-middleware",
+      "https://docs.copilotkit.ai/angular/ms-agent-python/agentic-protocols/index",
       "https://docs.copilotkit.ai/angular/ms-agent-python/auth",
-      "https://docs.copilotkit.ai/angular/ms-agent-python/deploy/agentcore",
-      "https://docs.copilotkit.ai/angular/ms-agent-python/deploy/aws-lambda",
-      "https://docs.copilotkit.ai/angular/ms-agent-python/deploy/langsmith",
+      "https://docs.copilotkit.ai/angular/ms-agent-python/backend/ag-ui",
+      "https://docs.copilotkit.ai/angular/ms-agent-python/backend/agent-runner",
+      "https://docs.copilotkit.ai/angular/ms-agent-python/backend/copilot-runtime",
+      "https://docs.copilotkit.ai/angular/ms-agent-python/backend/custom-agent",
+      "https://docs.copilotkit.ai/angular/ms-agent-python/backend/message-history",
+      "https://docs.copilotkit.ai/angular/ms-agent-python/backend/runtime-endpoints",
+      "https://docs.copilotkit.ai/angular/ms-agent-python/backend/self-managed-agents",
       "https://docs.copilotkit.ai/angular/ms-agent-python/concepts/architecture",
       "https://docs.copilotkit.ai/angular/ms-agent-python/concepts/generative-ui-overview",
       "https://docs.copilotkit.ai/angular/ms-agent-python/concepts/oss-vs-enterprise",
-      "https://docs.copilotkit.ai/angular/ms-agent-python/agentic-protocols/index",
-      "https://docs.copilotkit.ai/angular/ms-agent-python/agentic-protocols/ag-ui",
-      "https://docs.copilotkit.ai/angular/ms-agent-python/agentic-protocols/ag-ui-middleware",
-      "https://docs.copilotkit.ai/angular/ms-agent-python/agentic-protocols/a2a",
-      "https://docs.copilotkit.ai/angular/ms-agent-python/features",
-      "https://docs.copilotkit.ai/angular/ms-agent-python/guides/troubleshooting",
       "https://docs.copilotkit.ai/angular/ms-agent-python/contributing/code-contributions",
       "https://docs.copilotkit.ai/angular/ms-agent-python/contributing/docs-contributions",
+      "https://docs.copilotkit.ai/angular/ms-agent-python/copilot-runtime",
+      "https://docs.copilotkit.ai/angular/ms-agent-python/deploy/agentcore",
+      "https://docs.copilotkit.ai/angular/ms-agent-python/deploy/aws-lambda",
+      "https://docs.copilotkit.ai/angular/ms-agent-python/deploy/langsmith",
+      "https://docs.copilotkit.ai/angular/ms-agent-python/features",
+      "https://docs.copilotkit.ai/angular/ms-agent-python/guides/troubleshooting",
+      "https://docs.copilotkit.ai/angular/ms-agent-python/intelligence/analytics",
+      "https://docs.copilotkit.ai/angular/ms-agent-python/intelligence/channels",
+      "https://docs.copilotkit.ai/angular/ms-agent-python/intelligence/intelligence-platform",
+      "https://docs.copilotkit.ai/angular/ms-agent-python/intelligence/learned-skills",
+      "https://docs.copilotkit.ai/angular/ms-agent-python/intelligence/managed-intelligence-platform",
+      "https://docs.copilotkit.ai/angular/ms-agent-python/intelligence/memories",
+      "https://docs.copilotkit.ai/angular/ms-agent-python/intelligence/overview",
+      "https://docs.copilotkit.ai/angular/ms-agent-python/intelligence/plans",
+      "https://docs.copilotkit.ai/angular/ms-agent-python/intelligence/quickstart",
+      "https://docs.copilotkit.ai/angular/ms-agent-python/intelligence/self-hosting",
+      "https://docs.copilotkit.ai/angular/ms-agent-python/intelligence/self-hosting-ecs",
+      "https://docs.copilotkit.ai/angular/ms-agent-python/intelligence/threads-explained",
+      "https://docs.copilotkit.ai/angular/ms-agent-python/learning",
+      "https://docs.copilotkit.ai/angular/ms-agent-python/mcp-servers",
+      "https://docs.copilotkit.ai/angular/ms-agent-python/model-selection",
+      "https://docs.copilotkit.ai/angular/ms-agent-python/multi-agent/subagents",
+      "https://docs.copilotkit.ai/angular/ms-agent-python/runtime-server-adapter",
+      "https://docs.copilotkit.ai/angular/ms-agent-python/server-tools",
+      "https://docs.copilotkit.ai/angular/ms-agent-python/telemetry",
       "https://docs.copilotkit.ai/angular/ms-agent-python/troubleshooting/common-issues",
       "https://docs.copilotkit.ai/angular/ms-agent-python/troubleshooting/debug-mode",
       "https://docs.copilotkit.ai/angular/ms-agent-python/troubleshooting/event-inspector",
-      "https://docs.copilotkit.ai/angular/ms-agent-python/telemetry"
-    ]
-  },
-  "coverage": {
-    "ignoreRoutes": [
-      "/a2ui",
-      "/attachments",
-      "/memory"
+      "https://docs.copilotkit.ai/angular/ms-agent-python/using-these-docs",
+      "https://docs.copilotkit.ai/angular/ms-agent-python/webmcp"
     ]
   }
 }

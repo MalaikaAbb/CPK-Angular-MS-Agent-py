@@ -183,17 +183,31 @@ committed clips in `frontend/recordings/` had grown to 51MB.
 
 #### 4. Documentation Drift & Sync
 
-To verify that the project documentation snapshots remain byte-identical with live upstream docs at `https://docs.copilotkit.ai/angular/ms-agent-python`:
+`/doc-sync` (and the **Doc drift** panel on the landing page) fetches the markdown source behind every tracked doc page under `https://docs.copilotkit.ai/angular/ms-agent-python`, diffs each against the copy in `doc-snapshot/`, replaces that copy, and reports what moved, ranked by whether the change can break an implementation:
+
+| Level | Trigger |
+|---|---|
+| **High** | a changed line inside a fenced code block, a changed fence count, or a page that now 404s |
+| **Medium** | a changed heading, changed frontmatter, or prose in the same section as changed code |
+| **Low** | other prose |
+
+The same code (`frontend/src/app/lib/doc-sync/`) runs from three places:
+
+| Where | What it does |
+|---|---|
+| **Sync docs now** button | `POST /api/doc-sync/run` on the SSR server (`frontend/src/server.ts`), so it works under `ng serve` and in `dist/` |
+| `npm run doc:sync` | the button, from the terminal — rewrites the snapshot |
+| `npm run doc:check` | fetch + diff only, snapshot untouched. Exits `0` clean, `2` drift, `1` the check itself failed |
 
 ```bash
 cd frontend
-
-# Check for doc drift without modifying files
-npm run doc:check
-
-# Synchronize doc snapshots, manifest, changelog, and diff reports
-npm run doc:sync
+npm run doc:check   # used by the daily-recorder drift gate
+npm run doc:sync    # accepts the current docs as the new baseline
 ```
+
+`doc-snapshot/CHANGELOG.md` is written at the moment a change is discovered and keeps the three most recent dated entries, so a finding survives being synced past. The repo's one sync date is `syncedAt` in `doc-snapshot/manifest.json`.
+
+To test it, edit a `doc-snapshot/pages/*.md` file and press the button — a line inside a code fence for High, a `##` heading for Medium, a sentence for Low. The result is labelled as a local snapshot edit rather than upstream drift.
 
 ---
 

@@ -39,18 +39,19 @@ jobs:
         with:
           node-version: 22
 
-      # Recorded before the rewrite: once --update lands, the diff that
+      # Recorded before the rewrite: once the sync lands, the diff that
       # justified this PR is gone from the working tree.
       - name: Capture the drift that is being accepted
         run: |
           set +e
-          node ci/check-doc-drift.mjs > drift-before.txt 2>&1
+          (cd frontend && npx --yes tsx@4.23.12 scripts/doc-sync.ts --check) > drift-before.txt 2>&1
           echo "checker exited $?"
           set -e
           cat drift-before.txt
 
       - name: Rewrite the snapshot
-        run: node ci/check-doc-drift.mjs --update
+        working-directory: frontend
+        run: npx --yes tsx@4.23.12 scripts/doc-sync.ts
 
       - name: Open a PR if anything changed
         env:
