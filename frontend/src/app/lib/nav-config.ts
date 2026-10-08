@@ -4,12 +4,16 @@
  * exactly once.
  *
  * Groups mirror the sidebar at
- * https://docs.copilotkit.ai/angular/ms-agent-python as of DOC_SYNC_DATE. The
- * last doc page covers four topics at once; it is split into four routes here,
- * which all point back at the same `docPath`.
+ * https://docs.copilotkit.ai/angular/ms-agent-python. The last doc page covers
+ * four topics at once; it is split into four routes here, which all point back
+ * at the same `docPath`.
+ *
+ * There is exactly one doc-sync date in this repo, and it is not here: it is
+ * `syncedAt` in `doc-snapshot/manifest.json`, written every time the sync
+ * runs. A hand-maintained constant here could only ever drift out of
+ * agreement with the machine one, so it was removed — `/doc-sync` is the
+ * single place that answers "how current are these docs".
  */
-
-export const DOC_SYNC_DATE = '2026-08-26';
 export const DOCS_ROOT = 'https://docs.copilotkit.ai/angular/ms-agent-python';
 
 /**
@@ -157,6 +161,17 @@ export const NAV: NavGroup[] = [
           'Reading and writing agent state through injectAgentStore, and publishing read-only app context two ways.',
         status: 'working',
       },
+      {
+        path: '/webmcp',
+        hasDemo: true,
+        title: 'WebMCP',
+        docPath: '/angular/ms-agent-python/webmcp',
+        summary:
+          'A frontend tool opted into WebMCP with webmcp: { annotations }, so the same handler serves the CopilotKit agent and browser agents via document.modelContext.',
+        status: 'partial',
+        statusNote:
+          'WebMCP is experimental: browser agents can only discover the tool in Chrome 149+ with the origin trial or chrome://flags/#enable-webmcp-testing. Elsewhere CopilotKit registers nothing, and only the chat path runs.',
+      },
     ],
   },
   {
@@ -203,6 +218,69 @@ export const NAV: NavGroup[] = [
         summary:
           'A transcript and composer built from scratch on injectAgentStore and CopilotKitCore.runAgent.',
         status: 'working',
+      },
+    ],
+  },
+  {
+    title: 'Runtime and protocol',
+    routes: [
+      {
+        path: '/copilot-runtime',
+        hasDemo: true,
+        title: 'Copilot Runtime',
+        docPath: '/angular/ms-agent-python/copilot-runtime',
+        summary:
+          'Several agents behind one runtime: the default agent with no agentId, and research-agent addressed by its agents-map key.',
+        status: 'working',
+      },
+      {
+        path: '/ag-ui',
+        hasDemo: true,
+        title: 'AG-UI',
+        docPath: '/angular/ms-agent-python/ag-ui',
+        summary:
+          'injectAgentStore signals for message count and run status, and a raw AG-UI event subscription on store().agent.',
+        status: 'partial',
+        statusNote:
+          'The message count and run status work. The guide subscribes to store().agent in the constructor, before injectAgentStore has resolved the real agent, so onTextMessageContentEvent and onToolCallEndEvent never fire there (onStateChanged does). Subscribing after mount does receive events.',
+      },
+      {
+        path: '/auth',
+        hasDemo: true,
+        title: 'Authentication',
+        docPath: '/angular/ms-agent-python/auth',
+        summary:
+          'A runtime gated by an onRequest hook, session headers set through updateRuntime, a forwardHeaders allowlist, and credentialed CORS.',
+        status: 'working',
+      },
+    ],
+  },
+  {
+    title: 'Multi-agent',
+    routes: [
+      {
+        path: '/subagents',
+        hasDemo: true,
+        title: 'Sub-agents',
+        docPath: '/angular/ms-agent-python/multi-agent/subagents',
+        summary:
+          'A supervisor delegating to research, writing, and critique sub-agents, with a live delegation log driven by shared state.',
+        status: 'broken',
+        statusNote:
+          'Delegations fail with "bound to a different event loop": the showcase’s sync bridge runs each sub-agent on a new event loop in a worker thread, but the sub-agents share the supervisor’s chat client, which is bound to the server’s loop. Failed delegations are logged as "failed", which the UI filters out, so the log stays at 0.',
+      },
+    ],
+  },
+  {
+    title: 'Doc Sync',
+    routes: [
+      {
+        path: '/doc-sync',
+        title: 'Doc drift',
+        docPath: '/angular/ms-agent-python',
+        summary:
+          'Re-fetches the markdown behind every tracked doc page and diffs it against the stored snapshot, flagging changes inside code blocks.',
+        status: 'reference',
       },
     ],
   },

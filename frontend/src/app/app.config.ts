@@ -50,6 +50,9 @@ export const appConfig: ApplicationConfig = {
     // quickstart : connect to copilot runtime start
     provideCopilotKit({
       runtimeUrl: 'http://localhost:8220/api/copilotkit',
+      // auth : send cookies to a cross-origin runtime start
+      credentials: 'include',
+      // auth : send cookies to a cross-origin runtime end
       // a2ui : recover incomplete streams start
       a2ui: {
         recovery: { showAfterMs: 2_000, showAfterAttempts: 2 },

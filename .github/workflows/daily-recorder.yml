@@ -160,12 +160,15 @@ jobs:
         id: check
         run: |
           set +e
-          node ci/check-doc-drift.mjs > drift.txt 2>&1
+          # Same code as the /doc-sync button (frontend/src/app/lib/doc-sync/),
+          # in --check mode so the snapshot is never rewritten. It has no npm
+          # dependencies, so tsx is fetched alone instead of a full npm ci.
+          (cd frontend && npx --yes tsx@4.23.12 scripts/doc-sync.ts --check) > drift.txt 2>&1
           CODE=$?
           set -e
           cat drift.txt
 
-          # check-doc-drift.mjs exits 2 on drift and 0 when clean. Anything else
+          # doc-sync.ts --check exits 2 on drift and 0 when clean. Anything else
           # is the checker itself failing -- docs site unreachable, parse error --
           # which means drift is UNKNOWN, not absent. Treating that as "clean"
           # would record straight through a real change on any morning the docs

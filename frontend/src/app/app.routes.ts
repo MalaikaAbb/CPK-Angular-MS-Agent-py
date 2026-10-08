@@ -65,6 +65,32 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/demos').then((m) => m.HeadlessDemo),
   },
 
+  {
+    path: 'webmcp/demo',
+    loadComponent: () => import('./pages/demos').then((m) => m.WebmcpDemo),
+  },
+  {
+    path: 'webmcp/core-demo',
+    loadComponent: () => import('./pages/demos').then((m) => m.WebmcpCoreDemo),
+  },
+  {
+    path: 'copilot-runtime/demo',
+    loadComponent: () =>
+      import('./pages/demos').then((m) => m.CopilotRuntimeDemo),
+  },
+  {
+    path: 'ag-ui/demo',
+    loadComponent: () => import('./pages/demos').then((m) => m.AgUiDemo),
+  },
+  {
+    path: 'auth/demo',
+    loadComponent: () => import('./pages/demos').then((m) => m.AuthDemo),
+  },
+  {
+    path: 'subagents/demo',
+    loadComponent: () => import('./pages/demos').then((m) => m.SubagentsDemo),
+  },
+
   // Doc routes, inside the sidebar chrome.
   {
     path: '',
@@ -98,7 +124,16 @@ export const routes: Routes = [
         loadComponent: () => import('./pages/attachments'),
       },
       { path: 'headless', loadComponent: () => import('./pages/headless') },
+      { path: 'webmcp', loadComponent: () => import('./pages/webmcp') },
+      {
+        path: 'copilot-runtime',
+        loadComponent: () => import('./pages/copilot-runtime'),
+      },
+      { path: 'ag-ui', loadComponent: () => import('./pages/ag-ui') },
+      { path: 'auth', loadComponent: () => import('./pages/auth') },
+      { path: 'subagents', loadComponent: () => import('./pages/subagents') },
       { path: 'status', loadComponent: () => import('./pages/status') },
+      { path: 'doc-sync', loadComponent: () => import('./pages/doc-sync') },
       { path: '**', redirectTo: '' },
     ],
   },
